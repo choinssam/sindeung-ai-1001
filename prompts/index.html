@@ -46,14 +46,11 @@ header.top .links a{color:#fff;margin-right:16px}
 .search{margin-left:auto;min-width:220px;flex:0 1 300px;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;font:inherit;font-size:15px}
 .only{font-size:14px;color:var(--gray);display:flex;gap:6px;align-items:center;cursor:pointer}
 /* 카드 */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin:18px 0 40px;align-items:stretch;grid-auto-flow:row dense}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin:18px 0 40px;align-items:stretch}
 .card{display:flex;flex-direction:column}.card .body{flex:1;display:flex;flex-direction:column}.card .next{margin-top:auto;padding-top:8px}
 .extra{margin:4px 0 6px;border-top:1px dashed var(--line);padding-top:6px}
 .extra summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--c);list-style:none;padding:4px 0}
 .extra summary::-webkit-details-marker{display:none}
-.card:has(.extra[open]){grid-column:1/-1}
-.card:has(.extra[open]) .more ul{columns:2;column-gap:28px}
-@media (max-width:860px){.card:has(.extra[open]) .more ul{columns:1}}
 .extra summary:before{content:"+ "}.extra[open] summary:before{content:"− "}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;border-top:5px solid var(--c);overflow:hidden}
 .card.flash{box-shadow:0 0 0 3px var(--c),0 8px 26px rgba(0,0,0,.12);transition:box-shadow .3s}

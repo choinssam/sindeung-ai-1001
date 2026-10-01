@@ -46,16 +46,15 @@ header.top .links a{color:#fff;margin-right:16px}
 .search{margin-left:auto;min-width:220px;flex:0 1 300px;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;font:inherit;font-size:15px}
 .only{font-size:14px;color:var(--gray);display:flex;gap:6px;align-items:center;cursor:pointer}
 /* 카드 */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:18px 0 40px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin:18px 0 40px;align-items:start}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;border-top:5px solid var(--c);overflow:hidden}
-.card.open{grid-column:1/-1;box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.card.flash{box-shadow:0 0 0 3px var(--c),0 8px 26px rgba(0,0,0,.12);transition:box-shadow .3s}
 .c-start{--c:var(--start)}.c-talk{--c:var(--talk)}.c-add{--c:var(--add)}.c-fix{--c:var(--fix)}.c-share{--c:var(--share)}
-.card .head{display:block;width:100%;text-align:left;background:none;border:0;padding:14px 18px 16px;font:inherit;cursor:pointer;color:inherit}
+.card .head{padding:14px 18px 4px}
 .card .cat{font-size:13px;font-weight:700;color:var(--c)}
-.card .t{display:block;font-size:19px;font-weight:700;line-height:1.35;margin-top:2px}
+.card .t{display:block;font-size:19px;font-weight:700;line-height:1.35;margin:2px 0 0}
 .card .w{display:block;font-size:15px;color:var(--gray);margin-top:4px;line-height:1.45}
-.card .body{display:none;padding:0 18px 18px}
-.card.open .body{display:block}
+.card .body{padding:0 18px 16px}
 .card.star .cat:after{content:"자주 씀";font-size:12px;font-weight:700;color:#fff;background:var(--c);border-radius:999px;padding:1px 8px;margin-left:8px}
 .card{scroll-margin-top:90px}
 .pbox{margin:10px 0 12px;border-radius:10px;overflow:hidden;background:var(--panel)}
@@ -63,9 +62,9 @@ header.top .links a{color:#fff;margin-right:16px}
 .pbar span{color:#9fe3cc;font-weight:700;font-size:13px}
 .copy{background:var(--green);color:#fff;border:0;border-radius:8px;padding:7px 16px;font:inherit;font-size:15px;font-weight:700;cursor:pointer;min-height:40px}
 .copy.done{background:#fff;color:var(--green)}
-.pbox pre{margin:0;padding:14px 16px 16px;color:#eef1ef;white-space:pre-wrap;font-family:inherit;font-size:16px;line-height:1.75}
+.pbox pre{margin:0;padding:12px 16px 14px;color:#eef1ef;white-space:pre-wrap;font-family:inherit;font-size:16px;line-height:1.7}
 .fill{color:#7ee0bd;font-weight:700}
-.tip{margin:6px 0;font-size:15px;color:#37393a;background:#F7F5EF;border-left:4px solid var(--c);padding:8px 12px;border-radius:0 8px 8px 0}
+.tip{margin:6px 0;font-size:14px;color:#37393a;background:#F7F5EF;border-left:4px solid var(--c);padding:8px 12px;border-radius:0 8px 8px 0}
 .next{margin:10px 0 0;font-size:15px;color:var(--gray)}
 .next span a{display:inline-block;margin:4px 6px 0 0;padding:3px 10px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink);background:#fff}
 .next span a:hover{border-color:var(--ink)}
@@ -77,7 +76,7 @@ header.top .links a{color:#fff;margin-right:16px}
 .demo figure{margin:0}.demo img{width:100%;border:1px solid var(--line);border-radius:10px;display:block}
 .demo figcaption{font-size:14px;color:var(--gray);margin-top:6px}
 .reply{background:#F7F5EF;border-radius:10px;padding:14px 18px}
-.reply ol{margin:4px 0 10px;padding-left:20px}.reply li{margin:4px 0}
+.reply ol,.reply ul{margin:4px 0 10px;padding-left:20px}.reply li{margin:4px 0}
 .rl{font-size:13px;font-weight:700;color:var(--green);margin:8px 0 2px}
 .attach ul{margin:0;padding-left:20px}.attach li{margin:6px 0}
 .warn{margin-top:12px;font-size:15px;background:#FBF1E6;border-left:4px solid var(--talk);padding:10px 14px;border-radius:0 8px 8px 0}
@@ -96,31 +95,31 @@ footer{color:var(--gray);font-size:14px;padding:10px 0 60px}
   .demo-grid{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
 }
-@media print{.bar,.copy{display:none}.card .body{display:block}}
+@media print{.bar,.copy{display:none}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
   <div class="k">클로드 코드로 만드는 우리 반 웹앱</div>
   <h1>바로 쓰는 프롬프트</h1>
-  <p>필요한 상황을 찾아 복사하고, 초록 <b>[대괄호]</b>만 우리 반에 맞게 바꿔 Claude Code 입력창에 붙입니다.</p>
+  <p>필요한 상황을 찾아 복사하고, 초록 <b>[대괄호]</b>만 바꿔 Claude Code 입력창에 붙입니다. 대부분 한두 줄입니다.</p>
   <div class="how">
-    <div><b>1. 자료를 붙이고 시작</b>교과 PDF나 업무 문서를 끌어다 놓고 “아이디어부터”</div>
+    <div><b>1. 자료로 시작</b>교과 PDF나 업무 문서를 붙이거나, 공식 자료를 찾아오게 하고 “아이디어부터”</div>
     <div><b>2. 번호로 고르고 한 줄 더하기</b>AI가 낸 안을 보고 “3번, 다만 ~”</div>
-    <div><b>3. 되면 하나씩 붙이기</b>게임, 로그인, 대시보드는 한 번에 하나</div>
+    <div><b>3. 짧게 말하기</b>Claude가 알아서 하는 건 쓰지 않습니다. 학년, 자료, 쓰는 곳만</div>
   </div>
-  <div class="links"><a href="../">연수 페이지로</a><a href="#attach">파일 붙이는 법</a><a href="#demo">실제로 넣어 본 결과</a></div>
+  <div class="links"><a href="../">연수 페이지로</a><a href="#attach">파일 붙이는 법</a><a href="#demo">실제로 만든 사례</a></div>
 </div></header>
 
 <main class="wrap">
 <section class="path">
   <h2>처음이라면 이 순서로</h2>
   <nav class="steps">
-    <a href="#p-lesson"><span class="n">1</span><span class="s">자료로 시작</span><span class="d">교과·업무 자료 붙이고 아이디어 5개</span></a>
+    <a href="#p-lesson"><span class="n">1</span><span class="s">자료로 시작</span><span class="d">자료를 붙이거나 찾아오게 하고 아이디어부터</span></a>
     <a href="#p-pick"><span class="n">2</span><span class="s">번호로 고르기</span><span class="d">“3번, 다만 ~”</span></a>
     <a href="#p-screens"><span class="n">3</span><span class="s">화면 먼저 보기</span><span class="d">화면 구성 3안에서 고르기</span></a>
-    <a href="#p-build"><span class="n">4</span><span class="s">만들기</span><span class="d">한 파일, 미리보기로</span></a>
-    <a href="#p-artifact"><span class="n">5</span><span class="s">링크로 나누기</span><span class="d">아티팩트, 계속 쓰면 Vercel</span></a>
+    <a href="#p-build"><span class="n">4</span><span class="s">만들기</span><span class="d">미리보기로 써 보며</span></a>
+    <a href="#p-vercel"><span class="n">5</span><span class="s">버셀에 배포</span><span class="d">“버셀에 배포해 줘” 한 줄</span></a>
   </nav>
 </section>
 
@@ -137,559 +136,394 @@ footer{color:var(--gray);font-size:14px;padding:10px 0 60px}
   </div>
 </div>
 <div class="grid" id="grid">
-<article class="card star c-start" id="p-lesson" data-cat="start" data-q="교과 자료로 수업용 앱·게임 만들기 출판사 pdf, 지도서, 학습지를 붙이고 아이디어부터 받을 때 나는 초등학교 [5]학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-붙인 자료는 [과목] [단원명] [몇]차시 수업 자료야.
-
-1. 먼저 자료를 읽고 이 차시에서 학생이 배워야 할 것을 다섯 줄 안으로 정리해 줘.
-2. 이 차시에 쓸 재미있는 웹앱이나 학습 게임 아이디어를 서로 다른 것으로 5개 제안해 줘.
-   안마다: 이름 / 학생이 하는 일 한 줄 / 수업 어느 때(도입·전개·정리) / 배움과 이어지는 점 / 혼자·모둠·전체 / 만들기 난도
-3. 내용은 붙인 자료에서만 가져오고, 자료에 없는 사실은 지어내지 마.
-4. 아직 만들지 말고, 내가 번호로 고르면 다음 단계로 가자.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-start" id="p-lesson" data-cat="start" data-q="교과 자료로 수업용 앱·게임 출판사 pdf, 지도서, 학습지를 붙여서 시작할 때 나는 [5]학년 담임이고 코딩은 몰라.
+붙인 [사회 1단원 3차시] 자료로 수업에 쓸 웹앱이나 학습 게임 아이디어를 5개 줘.
+자료에 없는 내용은 지어내지 말고, 내가 고르기 전에는 만들지 마.">
+  <div class="head">
     <span class="cat">시작하기</span>
-    <span class="t">교과 자료로 수업용 앱·게임 만들기</span>
-    <span class="w">출판사 PDF, 지도서, 학습지를 붙이고 아이디어부터 받을 때</span>
-  </button>
+    <h3 class="t">교과 자료로 수업용 앱·게임</h3>
+    <span class="w">출판사 PDF, 지도서, 학습지를 붙여서 시작할 때</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>나는 초등학교 <span class="fill">[5]</span>학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-붙인 자료는 <span class="fill">[과목]</span> <span class="fill">[단원명]</span> <span class="fill">[몇]</span>차시 수업 자료야.
-
-1. 먼저 자료를 읽고 이 차시에서 학생이 배워야 할 것을 다섯 줄 안으로 정리해 줘.
-2. 이 차시에 쓸 재미있는 웹앱이나 학습 게임 아이디어를 서로 다른 것으로 5개 제안해 줘.
-   안마다: 이름 / 학생이 하는 일 한 줄 / 수업 어느 때(도입·전개·정리) / 배움과 이어지는 점 / 혼자·모둠·전체 / 만들기 난도
-3. 내용은 붙인 자료에서만 가져오고, 자료에 없는 사실은 지어내지 마.
-4. 아직 만들지 말고, 내가 번호로 고르면 다음 단계로 가자.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>나는 <span class="fill">[5]</span>학년 담임이고 코딩은 몰라.
+붙인 <span class="fill">[사회 1단원 3차시]</span> 자료로 수업에 쓸 웹앱이나 학습 게임 아이디어를 5개 줘.
+자료에 없는 내용은 지어내지 말고, 내가 고르기 전에는 만들지 마.</pre></div>
     
-    <p class="tip">PDF는 입력창에 끌어다 놓거나 작업 폴더에 넣고 파일 이름을 말합니다. 교과서 전체보다 그 단원 쪽만 잘라 주면 빠르고 정확합니다.</p>
-    <p class="next">이어서 <span><a href="#p-pick">번호로 고르고 한 줄 더하기</a><a href="#p-screens">화면 모습 먼저 보기</a><a href="#p-build">이제 만들어 달라고 할 때</a></span></p>
+    <p class="tip">PDF는 입력창에 끌어다 놓습니다. 교과서 전체보다 그 단원 쪽만 잘라 붙이면 빠릅니다.</p>
+    <p class="next">이어서 <span><a href="#p-pick">번호로 고르고 한 줄 더하기</a><a href="#p-screens">화면 먼저 보기</a><a href="#p-build">이제 만들기</a></span></p>
   </div>
 </article>
-<article class="card star c-start" id="p-work" data-cat="start" data-q="업무 자료로 업무 도구 만들기 공문, 계획서, 취합 양식을 붙이고 도구 아이디어를 받을 때 나는 초등학교 [5]학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-붙인 자료는 [업무 이름. 예) 현장체험학습 준비, 방과후 신청 취합] 관련 문서야.
-
-1. 먼저 읽고 이 업무가 어떤 순서로 진행되는지 단계와 마감일을 표로 정리해 줘. 사람 이름과 연락처는 옮기지 마.
-2. 이 업무를 쉽고 빠뜨림 없이 하게 도와줄 도구 아이디어를 서로 다른 것으로 4개 제안해 줘.
-   예) 체크리스트, 회신 취합기, 일정 알림판, 안내문 만들기
-   안마다: 이름 / 누가 쓰는지 / 줄어드는 일 / 저장할 기록이 있는지 / 만들기 난도
-3. 아직 만들지 말고, 내가 번호로 고르면 다음 단계로 가자.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-start" id="p-research" data-cat="start" data-q="자료를 찾아오게 해서 만들기 붙일 자료가 없을 때. 공식 자료를 claude가 찾아 근거로 씁니다 나는 [5]학년 담임이고 코딩은 몰라.
+[정보교육 주간]에 [1~6학년]이 쓸 [체험·퀴즈] 웹앱을 만들고 싶어.
+[교육부·keris·한국과학창의재단] 공식 자료를 찾아 근거로 쓰고, 출처 없는 내용은 넣지 마.
+아이디어부터 보여 줘.">
+  <div class="head">
     <span class="cat">시작하기</span>
-    <span class="t">업무 자료로 업무 도구 만들기</span>
-    <span class="w">공문, 계획서, 취합 양식을 붙이고 도구 아이디어를 받을 때</span>
-  </button>
+    <h3 class="t">자료를 찾아오게 해서 만들기</h3>
+    <span class="w">붙일 자료가 없을 때. 공식 자료를 Claude가 찾아 근거로 씁니다</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>나는 초등학교 <span class="fill">[5]</span>학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-붙인 자료는 <span class="fill">[업무 이름. 예) 현장체험학습 준비, 방과후 신청 취합]</span> 관련 문서야.
-
-1. 먼저 읽고 이 업무가 어떤 순서로 진행되는지 단계와 마감일을 표로 정리해 줘. 사람 이름과 연락처는 옮기지 마.
-2. 이 업무를 쉽고 빠뜨림 없이 하게 도와줄 도구 아이디어를 서로 다른 것으로 4개 제안해 줘.
-   예) 체크리스트, 회신 취합기, 일정 알림판, 안내문 만들기
-   안마다: 이름 / 누가 쓰는지 / 줄어드는 일 / 저장할 기록이 있는지 / 만들기 난도
-3. 아직 만들지 말고, 내가 번호로 고르면 다음 단계로 가자.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>나는 <span class="fill">[5]</span>학년 담임이고 코딩은 몰라.
+<span class="fill">[정보교육 주간]</span>에 <span class="fill">[1~6학년]</span>이 쓸 <span class="fill">[체험·퀴즈]</span> 웹앱을 만들고 싶어.
+<span class="fill">[교육부·KERIS·한국과학창의재단]</span> 공식 자료를 찾아 근거로 쓰고, 출처 없는 내용은 넣지 마.
+아이디어부터 보여 줘.</pre></div>
     
-    <p class="tip">개인정보가 든 명단은 붙이지 않고, 칸 이름만 남긴 빈 양식을 붙입니다.</p>
-    <p class="next">이어서 <span><a href="#p-pick">번호로 고르고 한 줄 더하기</a><a href="#p-screens">화면 모습 먼저 보기</a><a href="#p-build">이제 만들어 달라고 할 때</a></span></p>
+    <p class="tip">SW·AI 놀이터가 이렇게 시작했습니다. 아래 「실제로 만든 사례」를 보세요.</p>
+    <p class="next">이어서 <span><a href="#p-pick">번호로 고르고 한 줄 더하기</a><a href="#p-screens">화면 먼저 보기</a><a href="#p-build">이제 만들기</a></span></p>
   </div>
 </article>
-<article class="card c-start" id="p-noidea" data-cat="start" data-q="무엇을 만들지 모르겠을 때 아이디어가 떠오르지 않을 때. ai가 먼저 묻게 합니다 나는 초등학교 [5]학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-우리 반에서 쓸 웹앱을 하나 만들고 싶은데 무엇을 만들지 모르겠어.
-내 교실과 업무에서 불편한 점을 찾을 수 있게 질문을 5개 해 줘. 번호로 답할게.
-답을 보고 만들 만한 것을 3개 제안해 줘. 아직 만들지는 마.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-start" id="p-work" data-cat="start" data-q="업무 자료로 업무 도구 공문, 계획서, 취합 양식을 붙여서 시작할 때 나는 초등 교사고 코딩은 몰라.
+붙인 [현장체험학습 계획] 문서로 이 업무를 편하게 해 줄 도구 아이디어를 4개 줘.
+이름·연락처는 옮기지 마.">
+  <div class="head">
     <span class="cat">시작하기</span>
-    <span class="t">무엇을 만들지 모르겠을 때</span>
+    <h3 class="t">업무 자료로 업무 도구</h3>
+    <span class="w">공문, 계획서, 취합 양식을 붙여서 시작할 때</span>
+  </div>
+  <div class="body">
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>나는 초등 교사고 코딩은 몰라.
+붙인 <span class="fill">[현장체험학습 계획]</span> 문서로 이 업무를 편하게 해 줄 도구 아이디어를 4개 줘.
+이름·연락처는 옮기지 마.</pre></div>
+    
+    <p class="tip">명단 대신 칸 이름만 남긴 빈 양식을 붙입니다.</p>
+    <p class="next">이어서 <span><a href="#p-pick">번호로 고르고 한 줄 더하기</a><a href="#p-build">이제 만들기</a></span></p>
+  </div>
+</article>
+<article class="card c-start" id="p-noidea" data-cat="start" data-q="무엇을 만들지 모르겠을 때 아이디어가 떠오르지 않을 때. ai가 먼저 묻게 합니다 우리 반에서 쓸 웹앱을 만들고 싶은데 뭘 만들지 모르겠어.
+나한테 질문 5개를 하고, 답을 보고 3개 제안해 줘.">
+  <div class="head">
+    <span class="cat">시작하기</span>
+    <h3 class="t">무엇을 만들지 모르겠을 때</h3>
     <span class="w">아이디어가 떠오르지 않을 때. AI가 먼저 묻게 합니다</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>나는 초등학교 <span class="fill">[5]</span>학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-우리 반에서 쓸 웹앱을 하나 만들고 싶은데 무엇을 만들지 모르겠어.
-내 교실과 업무에서 불편한 점을 찾을 수 있게 질문을 5개 해 줘. 번호로 답할게.
-답을 보고 만들 만한 것을 3개 제안해 줘. 아직 만들지는 마.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>우리 반에서 쓸 웹앱을 만들고 싶은데 뭘 만들지 모르겠어.
+나한테 질문 5개를 하고, 답을 보고 3개 제안해 줘.</pre></div>
     
-    <p class="tip">매년 되풀이하는 일, 종이로 모으는 기록, 학생이 자꾸 묻는 것에서 자주 나옵니다.</p>
+    
     <p class="next">이어서 <span><a href="#p-pick">번호로 고르고 한 줄 더하기</a></span></p>
   </div>
 </article>
-<article class="card c-start" id="p-paper" data-cat="start" data-q="종이 학습지·체크표를 앱으로 옮기기 쓰던 학습지, 칠판 체크표, 엑셀을 그대로 앱으로 나는 초등학교 [5]학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-붙인 [사진 / 엑셀]은 내가 교실에서 쓰던 [무엇]이야.
-이걸 학생이 [태블릿 / 전자칠판]에서 쓰는 웹앱으로 옮기고 싶어.
-지금 종이로 할 때 불편한 점은 [예) 채점이 오래 걸림, 모으기 어려움]이야.
-옮기면서 더 편해질 방법을 3가지 제안해 주고, 내가 고르면 만들자.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-start" id="p-paper" data-cat="start" data-q="종이 학습지·체크표를 앱으로 쓰던 학습지나 칠판 체크표를 사진으로 찍어서 붙인 [학습지 사진]을 학생이 [태블릿]으로 하는 웹앱으로 바꾸고 싶어. 바꿀 방법 3가지를 제안해 줘.">
+  <div class="head">
     <span class="cat">시작하기</span>
-    <span class="t">종이 학습지·체크표를 앱으로 옮기기</span>
-    <span class="w">쓰던 학습지, 칠판 체크표, 엑셀을 그대로 앱으로</span>
-  </button>
+    <h3 class="t">종이 학습지·체크표를 앱으로</h3>
+    <span class="w">쓰던 학습지나 칠판 체크표를 사진으로 찍어서</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>나는 초등학교 <span class="fill">[5]</span>학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-붙인 <span class="fill">[사진 / 엑셀]</span>은 내가 교실에서 쓰던 <span class="fill">[무엇]</span>이야.
-이걸 학생이 <span class="fill">[태블릿 / 전자칠판]</span>에서 쓰는 웹앱으로 옮기고 싶어.
-지금 종이로 할 때 불편한 점은 <span class="fill">[예) 채점이 오래 걸림, 모으기 어려움]</span>이야.
-옮기면서 더 편해질 방법을 3가지 제안해 주고, 내가 고르면 만들자.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>붙인 <span class="fill">[학습지 사진]</span>을 학생이 <span class="fill">[태블릿]</span>으로 하는 웹앱으로 바꾸고 싶어. 바꿀 방법 3가지를 제안해 줘.</pre></div>
     
-    <p class="tip">종이를 휴대폰으로 찍어 붙이면 됩니다. 학생 이름이 보이면 가리고 찍습니다.</p>
-    <p class="next">이어서 <span><a href="#p-pick">번호로 고르고 한 줄 더하기</a><a href="#p-build">이제 만들어 달라고 할 때</a></span></p>
+    <p class="tip">학생 이름이 보이면 가리고 찍습니다.</p>
+    <p class="next">이어서 <span><a href="#p-pick">번호로 고르고 한 줄 더하기</a></span></p>
   </div>
 </article>
-<article class="card c-start" id="p-like" data-cat="start" data-q="본보기처럼 만들기 마음에 드는 사이트나 앱이 있을 때 나는 초등학교 [5]학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-[주소 / 붙인 캡처]처럼 생긴 [무엇]을 만들고 싶어.
-본보기에서 좋은 점을 세 가지로 정리해 주고, 우리 반 [학년·과목]에 맞게 바꿀 점을 제안해 줘.
-코드나 그림을 그대로 베끼지 말고 느낌만 가져와.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-start" id="p-like" data-cat="start" data-q="본보기처럼 만들기 마음에 드는 사이트나 앱이 있을 때 [주소 / 캡처]처럼 만들고 싶어. 느낌만 가져오고 그대로 베끼지는 마.">
+  <div class="head">
     <span class="cat">시작하기</span>
-    <span class="t">본보기처럼 만들기</span>
+    <h3 class="t">본보기처럼 만들기</h3>
     <span class="w">마음에 드는 사이트나 앱이 있을 때</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>나는 초등학교 <span class="fill">[5]</span>학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-<span class="fill">[주소 / 붙인 캡처]</span>처럼 생긴 <span class="fill">[무엇]</span>을 만들고 싶어.
-본보기에서 좋은 점을 세 가지로 정리해 주고, 우리 반 <span class="fill">[학년·과목]</span>에 맞게 바꿀 점을 제안해 줘.
-코드나 그림을 그대로 베끼지 말고 느낌만 가져와.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre><span class="fill">[주소 / 캡처]</span>처럼 만들고 싶어. 느낌만 가져오고 그대로 베끼지는 마.</pre></div>
     
-    <p class="tip">캡처에 마음에 드는 곳을 네모로 표시해서 붙이면 더 정확합니다.</p>
-    <p class="next">이어서 <span><a href="#p-pick">번호로 고르고 한 줄 더하기</a><a href="#p-build">이제 만들어 달라고 할 때</a></span></p>
+    
+    <p class="next">이어서 <span><a href="#p-pick">번호로 고르고 한 줄 더하기</a><a href="#p-build">이제 만들기</a></span></p>
   </div>
 </article>
-<article class="card star c-talk" id="p-pick" data-cat="talk" data-q="번호로 고르고 한 줄 더하기 ai가 낸 안 가운데 마음에 드는 것이 있을 때 [3]번으로 하자. 다만 [바꿀 점. 예) 모둠 대결로, 5분 안에 끝나게].
-만들기 전에 궁금한 것이 있으면 번호로 물어봐.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-talk" id="p-pick" data-cat="talk" data-q="번호로 고르고 한 줄 더하기 마음에 드는 안이 있을 때 [3]번으로 하자. 다만 [모둠 대결로].">
+  <div class="head">
     <span class="cat">고르고 다듬기</span>
-    <span class="t">번호로 고르고 한 줄 더하기</span>
-    <span class="w">AI가 낸 안 가운데 마음에 드는 것이 있을 때</span>
-  </button>
+    <h3 class="t">번호로 고르고 한 줄 더하기</h3>
+    <span class="w">마음에 드는 안이 있을 때</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre><span class="fill">[3]</span>번으로 하자. 다만 <span class="fill">[바꿀 점. 예) 모둠 대결로, 5분 안에 끝나게]</span>.
-만들기 전에 궁금한 것이 있으면 번호로 물어봐.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre><span class="fill">[3]</span>번으로 하자. 다만 <span class="fill">[모둠 대결로]</span>.</pre></div>
     
-    <p class="tip">마음에 안 드는 점을 “다만”으로 하나만 붙이면 대화가 짧아집니다.</p>
-    <p class="next">이어서 <span><a href="#p-screens">화면 모습 먼저 보기</a></span></p>
+    
+    <p class="next">이어서 <span><a href="#p-screens">화면 먼저 보기</a><a href="#p-build">이제 만들기</a></span></p>
   </div>
 </article>
-<article class="card c-talk" id="p-mix" data-cat="talk" data-q="두 안을 섞고 싶을 때 2번의 이것과 4번의 저것이 모두 좋을 때 [2]번의 [좋은 점]과 [4]번의 [좋은 점]을 합쳐서 하나로 다시 제안해 줘.
-합치면 어려워지는 점이 있으면 먼저 알려 줘.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-talk" id="p-mix" data-cat="talk" data-q="두 안을 섞기 2번의 이것과 4번의 저것이 모두 좋을 때 [2]번과 [4]번을 합쳐 줘.">
+  <div class="head">
     <span class="cat">고르고 다듬기</span>
-    <span class="t">두 안을 섞고 싶을 때</span>
+    <h3 class="t">두 안을 섞기</h3>
     <span class="w">2번의 이것과 4번의 저것이 모두 좋을 때</span>
-  </button>
-  <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre><span class="fill">[2]</span>번의 <span class="fill">[좋은 점]</span>과 <span class="fill">[4]</span>번의 <span class="fill">[좋은 점]</span>을 합쳐서 하나로 다시 제안해 줘.
-합치면 어려워지는 점이 있으면 먼저 알려 줘.</pre></div>
-    
-    
-    <p class="next">이어서 <span><a href="#p-screens">화면 모습 먼저 보기</a></span></p>
   </div>
-</article>
-<article class="card c-talk" id="p-again" data-cat="talk" data-q="마음에 드는 안이 없을 때 다시 받고 싶을 때. 이유를 같이 줍니다 마음에 드는 안이 없어. 이유는 [예) 너무 어려움, 게임 요소가 약함, 우리 반은 태블릿이 없음]이야.
-이 점을 고쳐서 방향이 서로 다른 안을 5개 더 줘.">
-  <button class="head" type="button" aria-expanded="false">
-    <span class="cat">고르고 다듬기</span>
-    <span class="t">마음에 드는 안이 없을 때</span>
-    <span class="w">다시 받고 싶을 때. 이유를 같이 줍니다</span>
-  </button>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>마음에 드는 안이 없어. 이유는 <span class="fill">[예) 너무 어려움, 게임 요소가 약함, 우리 반은 태블릿이 없음]</span>이야.
-이 점을 고쳐서 방향이 서로 다른 안을 5개 더 줘.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre><span class="fill">[2]</span>번과 <span class="fill">[4]</span>번을 합쳐 줘.</pre></div>
     
     
     
   </div>
 </article>
-<article class="card star c-talk" id="p-screens" data-cat="talk" data-q="화면 모습 먼저 보기 만들기 전에 어떤 화면이 될지 고르고 싶을 때 고른 안으로 화면 구성을 서로 다르게 3개 보여 줘.
-안마다 화면이 몇 개인지, 학생이 처음 보는 화면, 단추마다 하는 일을 적어 줘.
-간단한 그림(미리보기용 html)이 있으면 더 좋아. 내가 고르면 만들자.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-talk" id="p-again" data-cat="talk" data-q="마음에 드는 안이 없을 때 이유를 한 줄 붙여 다시 받습니다 다 별로야. [너무 어려워]. 다른 방향으로 5개 더.">
+  <div class="head">
     <span class="cat">고르고 다듬기</span>
-    <span class="t">화면 모습 먼저 보기</span>
+    <h3 class="t">마음에 드는 안이 없을 때</h3>
+    <span class="w">이유를 한 줄 붙여 다시 받습니다</span>
+  </div>
+  <div class="body">
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>다 별로야. <span class="fill">[너무 어려워]</span>. 다른 방향으로 5개 더.</pre></div>
+    
+    
+    
+  </div>
+</article>
+<article class="card star c-talk" id="p-screens" data-cat="talk" data-q="화면 먼저 보기 만들기 전에 어떤 화면이 될지 고르고 싶을 때 만들기 전에 화면 구성 3가지를 보여 줘.">
+  <div class="head">
+    <span class="cat">고르고 다듬기</span>
+    <h3 class="t">화면 먼저 보기</h3>
     <span class="w">만들기 전에 어떤 화면이 될지 고르고 싶을 때</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>고른 안으로 화면 구성을 서로 다르게 3개 보여 줘.
-안마다 화면이 몇 개인지, 학생이 처음 보는 화면, 단추마다 하는 일을 적어 줘.
-간단한 그림(미리보기용 html)이 있으면 더 좋아. 내가 고르면 만들자.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>만들기 전에 화면 구성 3가지를 보여 줘.</pre></div>
     
     <p class="tip">Plan 모드로 두면 계획만 받고 파일은 건드리지 않습니다.</p>
-    <p class="next">이어서 <span><a href="#p-build">이제 만들어 달라고 할 때</a></span></p>
+    <p class="next">이어서 <span><a href="#p-build">이제 만들기</a></span></p>
   </div>
 </article>
-<article class="card star c-talk" id="p-build" data-cat="talk" data-q="이제 만들어 달라고 할 때 안과 화면을 골랐을 때 좋아, 이대로 만들어 줘.
-- index.html 한 파일로, 이 컴퓨터에 저장되게
-- 학생 이름은 받지 않고 번호로
-- [전자칠판 / 태블릿]에서 글씨와 단추는 크게
-다 만들면 미리보기로 열고, 학생이 되어 한 번 써 본 뒤 막힌 곳을 고쳐서 알려 줘.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-talk" id="p-build" data-cat="talk" data-q="이제 만들기 안과 화면을 골랐을 때 좋아, 만들어 줘. 학생은 [전자칠판 / 태블릿]으로 쓰고, 이름 대신 번호를 써.">
+  <div class="head">
     <span class="cat">고르고 다듬기</span>
-    <span class="t">이제 만들어 달라고 할 때</span>
+    <h3 class="t">이제 만들기</h3>
     <span class="w">안과 화면을 골랐을 때</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>좋아, 이대로 만들어 줘.
-- index.html 한 파일로, 이 컴퓨터에 저장되게
-- 학생 이름은 받지 않고 번호로
-- <span class="fill">[전자칠판 / 태블릿]</span>에서 글씨와 단추는 크게
-다 만들면 미리보기로 열고, 학생이 되어 한 번 써 본 뒤 막힌 곳을 고쳐서 알려 줘.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>좋아, 만들어 줘. 학생은 <span class="fill">[전자칠판 / 태블릿]</span>으로 쓰고, 이름 대신 번호를 써.</pre></div>
     
-    <p class="tip">권한 모드를 Accept edits로 바꾸면 파일 고칠 때마다 묻지 않습니다.</p>
-    <p class="next">이어서 <span><a href="#p-shot">화면 캡처로 고치기</a><a href="#p-game">게임으로 만들기</a><a href="#p-artifact">오늘 바로 링크로 나누기 (Claude 아티팩트)</a></span></p>
+    <p class="tip">기록을 반 전체가 같이 써야 하면 만들기 전에 「기록 저장 방법 정하기」 카드부터.</p>
+    <p class="next">이어서 <span><a href="#p-shot">화면 캡처로 고치기</a><a href="#p-game">게임으로</a><a href="#p-vercel">버셀에 배포</a></span></p>
   </div>
 </article>
-<article class="card star c-add" id="p-game" data-cat="add" data-q="게임으로 만들기 문제 풀이나 활동에 재미를 붙일 때 지금 되는 기능은 그대로 두고 게임으로 만들어 줘.
-- 단계 [3]개, 뒤로 갈수록 어렵게
-- 점수와 남은 시간, 연속으로 맞히면 콤보
-- 틀린 문제는 끝에 다시 풀기, 해설은 화면을 밀지 않게 바닥에서 올라오게
-- 끝나면 별 3개로 결과, 등수나 친구와 비교는 넣지 마
-- 효과음은 켜고 끄는 단추를 두고 기본은 꺼짐">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-add" id="p-storage" data-cat="add" data-q="기록 저장 방법 정하기 학생들이 한 기록이 교사 화면에 모여야 할 때. 로그인·대시보드보다 먼저 학생들이 한 기록이 내 화면에 모여야 해. 저장 방법을 2~3가지 비교해서 추천해 줘.">
+  <div class="head">
     <span class="cat">기능 붙이기</span>
-    <span class="t">게임으로 만들기</span>
-    <span class="w">문제 풀이나 활동에 재미를 붙일 때</span>
-  </button>
+    <h3 class="t">기록 저장 방법 정하기</h3>
+    <span class="w">학생들이 한 기록이 교사 화면에 모여야 할 때. 로그인·대시보드보다 먼저</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>지금 되는 기능은 그대로 두고 게임으로 만들어 줘.
-- 단계 <span class="fill">[3]</span>개, 뒤로 갈수록 어렵게
-- 점수와 남은 시간, 연속으로 맞히면 콤보
-- 틀린 문제는 끝에 다시 풀기, 해설은 화면을 밀지 않게 바닥에서 올라오게
-- 끝나면 별 3개로 결과, 등수나 친구와 비교는 넣지 마
-- 효과음은 켜고 끄는 단추를 두고 기본은 꺼짐</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>학생들이 한 기록이 내 화면에 모여야 해. 저장 방법을 2~3가지 비교해서 추천해 줘.</pre></div>
+    
+    <p class="tip">기록이 필요 없는 앱(퀴즈, 뽑기, 게임)은 건너뜁니다. 저장 방법이 정해지면 로그인, 방 코드, 대시보드를 붙일 수 있습니다.</p>
+    <p class="next">이어서 <span><a href="#p-login">학생 로그인</a><a href="#p-dash">교사 대시보드</a></span></p>
+  </div>
+</article>
+<article class="card star c-add" id="p-game" data-cat="add" data-q="게임으로 문제 풀이나 활동에 재미를 붙일 때 게임으로 바꿔 줘. 점수, 단계, 시간 제한. 등수는 빼.">
+  <div class="head">
+    <span class="cat">기능 붙이기</span>
+    <h3 class="t">게임으로</h3>
+    <span class="w">문제 풀이나 활동에 재미를 붙일 때</span>
+  </div>
+  <div class="body">
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>게임으로 바꿔 줘. 점수, 단계, 시간 제한. 등수는 빼.</pre></div>
     
     <p class="tip">모둠 대결로 하고 싶으면 “전자칠판 한 대에서 모둠 [4]개가 차례로”를 붙입니다.</p>
     
   </div>
 </article>
-<article class="card c-add" id="p-quiz" data-cat="add" data-q="자료에서 문제 만들기 붙인 교과 자료로 퀴즈 문제를 채울 때 붙인 자료에서만 문제를 [20]개 만들어 줘.
-쉬움·보통·어려움을 섞고, 문제마다 답과 한 줄 해설을 붙여 줘.
-자료에 없는 내용은 넣지 말고, 만든 문제를 표로 먼저 보여 줘. 내가 고친 뒤 앱에 넣자.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-add" id="p-quiz" data-cat="add" data-q="자료에서 문제 만들기 퀴즈 문제를 채울 때 붙인 자료에서만 문제 [20]개 만들어서 표로 먼저 보여 줘.">
+  <div class="head">
     <span class="cat">기능 붙이기</span>
-    <span class="t">자료에서 문제 만들기</span>
-    <span class="w">붙인 교과 자료로 퀴즈 문제를 채울 때</span>
-  </button>
+    <h3 class="t">자료에서 문제 만들기</h3>
+    <span class="w">퀴즈 문제를 채울 때</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>붙인 자료에서만 문제를 <span class="fill">[20]</span>개 만들어 줘.
-쉬움·보통·어려움을 섞고, 문제마다 답과 한 줄 해설을 붙여 줘.
-자료에 없는 내용은 넣지 말고, 만든 문제를 표로 먼저 보여 줘. 내가 고친 뒤 앱에 넣자.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>붙인 자료에서만 문제 <span class="fill">[20]</span>개 만들어서 표로 먼저 보여 줘.</pre></div>
     
-    <p class="tip">문제는 앱에 넣기 전에 선생님이 표로 확인합니다. 틀린 사실이 섞이면 여기서 걸러집니다.</p>
+    <p class="tip">앱에 넣기 전에 표에서 틀린 사실을 거릅니다.</p>
     
   </div>
 </article>
-<article class="card star c-add" id="p-design" data-cat="add" data-q="디자인을 예쁘게 기능은 되는데 보기가 밋밋할 때 기능은 그대로 두고 디자인만 바꾸고 싶어.
-서로 다른 콘셉트 [3]개를 먼저 보여 줘. 콘셉트마다 이름, 색 3개, 글꼴, 어울리는 이유 한 줄.
-흔한 모양(이모지 가득, 둥근 흰 카드, 보라색 그라데이션)은 피해 줘.
-[5]학년이 보고 “우와” 할 만하게. 내가 번호로 고르면 그걸로 바꿔.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-add" id="p-design" data-cat="add" data-q="디자인을 예쁘게 기능은 되는데 보기가 밋밋할 때 [5]학년이 “우와” 할 만한 디자인 콘셉트 3개를 먼저 보여 줘.">
+  <div class="head">
     <span class="cat">기능 붙이기</span>
-    <span class="t">디자인을 예쁘게</span>
+    <h3 class="t">디자인을 예쁘게</h3>
     <span class="w">기능은 되는데 보기가 밋밋할 때</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>기능은 그대로 두고 디자인만 바꾸고 싶어.
-서로 다른 콘셉트 <span class="fill">[3]</span>개를 먼저 보여 줘. 콘셉트마다 이름, 색 3개, 글꼴, 어울리는 이유 한 줄.
-흔한 모양(이모지 가득, 둥근 흰 카드, 보라색 그라데이션)은 피해 줘.
-<span class="fill">[5]</span>학년이 보고 “우와” 할 만하게. 내가 번호로 고르면 그걸로 바꿔.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre><span class="fill">[5]</span>학년이 “우와” 할 만한 디자인 콘셉트 3개를 먼저 보여 줘.</pre></div>
     
     <p class="tip">마음에 드는 사이트 캡처를 같이 붙이면 훨씬 가깝게 나옵니다.</p>
     
   </div>
 </article>
-<article class="card c-add" id="p-board" data-cat="add" data-q="전자칠판·태블릿에 맞추기 교실 화면에서 글씨가 작거나 손가락으로 누르기 불편할 때 지금 되는 기능은 그대로 두고 교실 화면에 맞춰 줘.
-- 전체 화면 단추, 뒷자리에서도 읽히게 글씨 크기 3단계
-- 1920×1080에서 스크롤 없이 한 화면
-- 태블릿 손가락으로 모든 단추를 눌러 보고, 작거나 엉뚱하게 눌리는 곳을 고쳐 줘">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-add" id="p-board" data-cat="add" data-q="전자칠판·태블릿에 맞추기 글씨가 작거나 손가락으로 누르기 불편할 때 전자칠판 뒷자리에서도 보이고, 태블릿 손가락으로 누르기 편하게 맞춰 줘.">
+  <div class="head">
     <span class="cat">기능 붙이기</span>
-    <span class="t">전자칠판·태블릿에 맞추기</span>
-    <span class="w">교실 화면에서 글씨가 작거나 손가락으로 누르기 불편할 때</span>
-  </button>
+    <h3 class="t">전자칠판·태블릿에 맞추기</h3>
+    <span class="w">글씨가 작거나 손가락으로 누르기 불편할 때</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>지금 되는 기능은 그대로 두고 교실 화면에 맞춰 줘.
-- 전체 화면 단추, 뒷자리에서도 읽히게 글씨 크기 3단계
-- 1920×1080에서 스크롤 없이 한 화면
-- 태블릿 손가락으로 모든 단추를 눌러 보고, 작거나 엉뚱하게 눌리는 곳을 고쳐 줘</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>전자칠판 뒷자리에서도 보이고, 태블릿 손가락으로 누르기 편하게 맞춰 줘.</pre></div>
     
     
     
   </div>
 </article>
-<article class="card star c-add" id="p-db" data-cat="add" data-q="반 전체 기록을 한곳에 모으기 학생 태블릿에서 한 것이 교사 화면에 보여야 할 때. 로그인·대시보드보다 먼저 지금 되는 기능은 그대로 두고, 저장을 반 전체가 같이 쓰는 데이터베이스로 옮겨 줘.
-cloudflare worker와 d1을 써. 나는 cloudflare 가입과 메일 인증을 해 두었어.
-설치나 로그인이 필요하면 네가 하고, 내가 눌러야 하는 창만 순서대로 알려 줘.
-학생 이름은 저장하지 말고 번호만. 다 되면 주소를 알려 줘.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-add" id="p-login" data-cat="add" data-q="학생 로그인 학생마다 자기 기록만 보게 하고 싶을 때 학생 로그인을 넣어 줘. 번호와 숫자 4자리 비밀번호로.">
+  <div class="head">
     <span class="cat">기능 붙이기</span>
-    <span class="t">반 전체 기록을 한곳에 모으기</span>
-    <span class="w">학생 태블릿에서 한 것이 교사 화면에 보여야 할 때. 로그인·대시보드보다 먼저</span>
-  </button>
-  <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>지금 되는 기능은 그대로 두고, 저장을 반 전체가 같이 쓰는 데이터베이스로 옮겨 줘.
-Cloudflare Worker와 D1을 써. 나는 Cloudflare 가입과 메일 인증을 해 두었어.
-설치나 로그인이 필요하면 네가 하고, 내가 눌러야 하는 창만 순서대로 알려 줘.
-학생 이름은 저장하지 말고 번호만. 다 되면 주소를 알려 줘.</pre></div>
-    
-    <p class="tip">처음 판은 기기마다 따로 저장됩니다. 로그인, 방 코드, 대시보드는 이걸 붙인 뒤에 제대로 됩니다.</p>
-    
-  </div>
-</article>
-<article class="card star c-add" id="p-login" data-cat="add" data-q="학생 로그인 넣기 학생마다 자기 기록만 보게 하고 싶을 때 지금 되는 기능은 그대로 두고 학생 로그인을 넣어 줘.
-- 번호를 고르고 숫자 4자리 비밀번호. 처음 비밀번호는 교사가 정해 준다
-- 비밀번호 확인은 서버에서, 저장은 알아볼 수 없게
-- 5번 틀리면 5분 잠금
-- 로그인한 학생은 자기 기록만 보고 고칠 수 있다
-- 교사는 숫자 4자리 pin으로 들어와 비밀번호를 다시 정해 줄 수 있다">
-  <button class="head" type="button" aria-expanded="false">
-    <span class="cat">기능 붙이기</span>
-    <span class="t">학생 로그인 넣기</span>
+    <h3 class="t">학생 로그인</h3>
     <span class="w">학생마다 자기 기록만 보게 하고 싶을 때</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>지금 되는 기능은 그대로 두고 학생 로그인을 넣어 줘.
-- 번호를 고르고 숫자 4자리 비밀번호. 처음 비밀번호는 교사가 정해 준다
-- 비밀번호 확인은 서버에서, 저장은 알아볼 수 없게
-- 5번 틀리면 5분 잠금
-- 로그인한 학생은 자기 기록만 보고 고칠 수 있다
-- 교사는 숫자 4자리 PIN으로 들어와 비밀번호를 다시 정해 줄 수 있다</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>학생 로그인을 넣어 줘. 번호와 숫자 4자리 비밀번호로.</pre></div>
     
-    <p class="tip">반 전체 기록 모으기를 먼저 붙여야 합니다.</p>
+    <p class="tip">「기록 저장 방법 정하기」를 먼저 합니다.</p>
     
   </div>
 </article>
-<article class="card c-add" id="p-room" data-cat="add" data-q="수업 방 코드·qr로 들어오기 로그인 없이 코드만으로 반별 기록을 가르고 싶을 때 지금 되는 기능은 그대로 두고 수업 방 코드를 넣어 줘.
-- 교사가 “방 만들기”를 누르면 5자리 코드, qr, 접속 주소가 나온다
-- 학생은 qr을 찍거나 코드를 넣어 들어온다. 로그인은 없다
-- 기록은 그 방에만 모이고, 방마다 교사 보기 링크를 따로 준다
-- 방은 [2시간] 뒤 닫힌다">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-add" id="p-room" data-cat="add" data-q="수업 방 코드·qr 로그인 없이 코드로 반을 가르고 싶을 때 로그인 없이 수업 방 코드와 qr로 들어오게 해 줘.">
+  <div class="head">
     <span class="cat">기능 붙이기</span>
-    <span class="t">수업 방 코드·QR로 들어오기</span>
-    <span class="w">로그인 없이 코드만으로 반별 기록을 가르고 싶을 때</span>
-  </button>
+    <h3 class="t">수업 방 코드·QR</h3>
+    <span class="w">로그인 없이 코드로 반을 가르고 싶을 때</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>지금 되는 기능은 그대로 두고 수업 방 코드를 넣어 줘.
-- 교사가 “방 만들기”를 누르면 5자리 코드, QR, 접속 주소가 나온다
-- 학생은 QR을 찍거나 코드를 넣어 들어온다. 로그인은 없다
-- 기록은 그 방에만 모이고, 방마다 교사 보기 링크를 따로 준다
-- 방은 <span class="fill">[2시간]</span> 뒤 닫힌다</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>로그인 없이 수업 방 코드와 QR로 들어오게 해 줘.</pre></div>
     
-    <p class="tip">SW·AI 놀이터와 디드가 이 방식입니다. 반 전체 기록 모으기가 먼저입니다.</p>
+    <p class="tip">SW·AI 놀이터와 디드가 이 방식입니다.</p>
     
   </div>
 </article>
-<article class="card star c-add" id="p-dash" data-cat="add" data-q="교사 대시보드(현황판) 누가 했는지, 누가 도움이 필요한지 한눈에 보고 싶을 때 지금 되는 기능은 그대로 두고 교사 화면을 만들어 줘.
-- 맨 위에 한 줄: “오늘 안 한 학생 4명 · 살펴볼 학생 2명”. 누르면 그 학생만 보이게
-- 학생별 줄: 최근 기록, 최근 7일 추이 작은 그래프, 상태(했음 / 안 함 / 기록 없음 / 살펴보기)
-- 살펴보기 기준은 [예) 최근 5일 정답률 50% 미만]
-- 학생 화면에는 등수, 반 평균, 다른 학생 기록을 넣지 마">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-add" id="p-dash" data-cat="add" data-q="교사 대시보드 누가 했는지, 누가 도움이 필요한지 한눈에 교사 화면을 만들어 줘. 오늘 안 한 학생과 도움이 필요한 학생이 한눈에 보이게.">
+  <div class="head">
     <span class="cat">기능 붙이기</span>
-    <span class="t">교사 대시보드(현황판)</span>
-    <span class="w">누가 했는지, 누가 도움이 필요한지 한눈에 보고 싶을 때</span>
-  </button>
+    <h3 class="t">교사 대시보드</h3>
+    <span class="w">누가 했는지, 누가 도움이 필요한지 한눈에</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>지금 되는 기능은 그대로 두고 교사 화면을 만들어 줘.
-- 맨 위에 한 줄: “오늘 안 한 학생 4명 · 살펴볼 학생 2명”. 누르면 그 학생만 보이게
-- 학생별 줄: 최근 기록, 최근 7일 추이 작은 그래프, 상태(했음 / 안 함 / 기록 없음 / 살펴보기)
-- 살펴보기 기준은 <span class="fill">[예) 최근 5일 정답률 50% 미만]</span>
-- 학생 화면에는 등수, 반 평균, 다른 학생 기록을 넣지 마</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>교사 화면을 만들어 줘. 오늘 안 한 학생과 도움이 필요한 학생이 한눈에 보이게.</pre></div>
     
-    <p class="tip">살펴보기 기준을 한 줄로 정해 주면 표가 쓸모 있어집니다.</p>
+    <p class="tip">도움이 필요한 기준을 한 줄 붙이면 더 쓸모 있습니다. 예) 최근 5일 정답률 50% 미만</p>
     
   </div>
 </article>
-<article class="card c-add" id="p-feedback" data-cat="add" data-q="학생 의견 받아 계속 고치기 쓰는 학생들 의견으로 앱을 키우고 싶을 때 지금 되는 기능은 그대로 두고 의견함을 넣어 줘.
-- 모든 화면 위쪽에 “의견 보내기” 단추. 종류: 고장났어요 / 이런 기능이 있으면 / 기타
-- 이름 칸은 없고, 어느 화면에서 보냈는지 자동으로 붙인다
-- 교사 화면에 새 의견 수, 교사가 답을 적으면 학생 화면에 “답이 왔어요”">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-add" id="p-feedback" data-cat="add" data-q="학생 의견 받아 계속 고치기 쓰는 학생들 의견으로 앱을 키우고 싶을 때 학생이 의견을 보낼 수 있게 해 줘. 이름은 받지 말고, 내가 답할 수 있게.">
+  <div class="head">
     <span class="cat">기능 붙이기</span>
-    <span class="t">학생 의견 받아 계속 고치기</span>
+    <h3 class="t">학생 의견 받아 계속 고치기</h3>
     <span class="w">쓰는 학생들 의견으로 앱을 키우고 싶을 때</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>지금 되는 기능은 그대로 두고 의견함을 넣어 줘.
-- 모든 화면 위쪽에 “의견 보내기” 단추. 종류: 고장났어요 / 이런 기능이 있으면 / 기타
-- 이름 칸은 없고, 어느 화면에서 보냈는지 자동으로 붙인다
-- 교사 화면에 새 의견 수, 교사가 답을 적으면 학생 화면에 “답이 왔어요”</pre></div>
-    <div class="pbox"><div class="pbar"><span>의견이 쌓이면</span><button class="copy" type="button">복사</button></div><pre>의견함에 들어온 것을 고칠 목록으로 정리해 줘. 오류가 먼저, 기능 제안은 뒤에.
-명백한 오류는 바로 고치고, 기능을 바꾸는 것은 나한테 먼저 물어봐.
-고친 뒤 의견마다 초등학생 눈높이로 답 문장을 써 줘.</pre></div>
-    <p class="tip">한뼘 건의함, 밤하늘·SW 놀이터 의견 보내기가 이 흐름으로 자랐습니다.</p>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>학생이 의견을 보낼 수 있게 해 줘. 이름은 받지 말고, 내가 답할 수 있게.</pre></div>
+    <div class="pbox"><div class="pbar"><span>의견이 쌓이면</span><button class="copy" type="button">복사</button></div><pre>의견함 보고 오류부터 고쳐 줘. 기능을 바꾸는 건 먼저 물어봐.</pre></div>
+    <p class="tip">한뼘 건의함, 밤하늘·SW 놀이터 의견 보내기가 이렇게 자랐습니다.</p>
     
   </div>
 </article>
-<article class="card c-add" id="p-export" data-cat="add" data-q="결과 내려받기·ai 피드백 학생 기록을 엑셀로 받거나 개별 피드백을 쓰고 싶을 때 지금 되는 기능은 그대로 두고 교사 화면에 단추 두 개를 넣어 줘.
-- “엑셀로 내려받기”: 번호별 기록을 csv로. 이름 칸은 없다. 한글이 안 깨지게
-- “ai에게 줄 글 복사”: 이번 달 기록과 함께 “학생별로 칭찬 한 줄, 다음 목표 한 줄을 써 줘”라는 요청문을 복사">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-add" id="p-export" data-cat="add" data-q="엑셀로 내려받기 학생 기록을 엑셀로 받고 싶을 때 학생 기록을 엑셀로 받을 수 있게 해 줘.">
+  <div class="head">
     <span class="cat">기능 붙이기</span>
-    <span class="t">결과 내려받기·AI 피드백</span>
-    <span class="w">학생 기록을 엑셀로 받거나 개별 피드백을 쓰고 싶을 때</span>
-  </button>
+    <h3 class="t">엑셀로 내려받기</h3>
+    <span class="w">학생 기록을 엑셀로 받고 싶을 때</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>지금 되는 기능은 그대로 두고 교사 화면에 단추 두 개를 넣어 줘.
-- “엑셀로 내려받기”: 번호별 기록을 CSV로. 이름 칸은 없다. 한글이 안 깨지게
-- “AI에게 줄 글 복사”: 이번 달 기록과 함께 “학생별로 칭찬 한 줄, 다음 목표 한 줄을 써 줘”라는 요청문을 복사</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>학생 기록을 엑셀로 받을 수 있게 해 줘.</pre></div>
     
     
     
   </div>
 </article>
-<article class="card star c-fix" id="p-shot" data-cat="fix" data-q="화면 캡처로 고치기 말로 설명하기 어려운 곳을 고칠 때 (캡처에 네모를 치고 입력창에 끌어다 놓고)
-네모 친 부분이 [예) 교실 뒤에서 안 보여 / 누르면 아무 일도 안 일어나].
-[이렇게] 바꿔 주고 나머지는 그대로 둬.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-fix" id="p-shot" data-cat="fix" data-q="화면 캡처로 고치기 말로 설명하기 어려운 곳 (캡처에 네모 치고 붙여서) 여기를 [더 크게] 바꿔 줘.">
+  <div class="head">
     <span class="cat">고치기</span>
-    <span class="t">화면 캡처로 고치기</span>
-    <span class="w">말로 설명하기 어려운 곳을 고칠 때</span>
-  </button>
+    <h3 class="t">화면 캡처로 고치기</h3>
+    <span class="w">말로 설명하기 어려운 곳</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>(캡처에 네모를 치고 입력창에 끌어다 놓고)
-네모 친 부분이 <span class="fill">[예) 교실 뒤에서 안 보여 / 누르면 아무 일도 안 일어나]</span>.
-<span class="fill">[이렇게]</span> 바꿔 주고 나머지는 그대로 둬.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>(캡처에 네모 치고 붙여서) 여기를 <span class="fill">[더 크게]</span> 바꿔 줘.</pre></div>
     
     <p class="tip">윈도우는 Win+Shift+S로 캡처하면 바로 붙여 넣을 수 있습니다.</p>
     
   </div>
 </article>
-<article class="card c-fix" id="p-error" data-cat="fix" data-q="오류가 날 때 빨간 글씨, 빈 화면, 단추가 안 먹을 때 (오류 문구나 화면을 그대로 붙이고)
-[무엇을 눌렀더니] 이렇게 됐어. 원인을 찾아 고치고, 미리보기로 다시 확인해 줘.
-원인은 초등 교사가 알아듣게 한 줄로 알려 줘.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-fix" id="p-error" data-cat="fix" data-q="오류가 날 때 빨간 글씨, 빈 화면, 단추가 안 먹을 때 (오류 화면을 붙여서) 고쳐 줘.">
+  <div class="head">
     <span class="cat">고치기</span>
-    <span class="t">오류가 날 때</span>
+    <h3 class="t">오류가 날 때</h3>
     <span class="w">빨간 글씨, 빈 화면, 단추가 안 먹을 때</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>(오류 문구나 화면을 그대로 붙이고)
-<span class="fill">[무엇을 눌렀더니]</span> 이렇게 됐어. 원인을 찾아 고치고, 미리보기로 다시 확인해 줘.
-원인은 초등 교사가 알아듣게 한 줄로 알려 줘.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>(오류 화면을 붙여서) 고쳐 줘.</pre></div>
     
     
     
   </div>
 </article>
-<article class="card c-fix" id="p-undo" data-cat="fix" data-q="되돌리기·지금까지 정리 방금 고친 것 때문에 다른 게 고장났을 때 방금 바꾼 것을 되돌려 줘. 그리고 지금까지 바꾼 것을 초등 교사가 알아듣게 세 줄로 정리해 줘.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-fix" id="p-undo" data-cat="fix" data-q="되돌리기 방금 고친 것 때문에 다른 게 고장났을 때 방금 바꾼 거 되돌려 줘.">
+  <div class="head">
     <span class="cat">고치기</span>
-    <span class="t">되돌리기·지금까지 정리</span>
+    <h3 class="t">되돌리기</h3>
     <span class="w">방금 고친 것 때문에 다른 게 고장났을 때</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>방금 바꾼 것을 되돌려 줘. 그리고 지금까지 바꾼 것을 초등 교사가 알아듣게 세 줄로 정리해 줘.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>방금 바꾼 거 되돌려 줘.</pre></div>
     
-    <p class="tip">Code 탭에서 /rewind 를 쳐도 앞 단계로 돌아갑니다.</p>
+    <p class="tip">Code 탭에서 /rewind 를 쳐도 됩니다.</p>
     
   </div>
 </article>
-<article class="card c-fix" id="p-check" data-cat="fix" data-q="학생 입장에서 점검 교실에 내놓기 전에 [5]학년 학생이 처음 쓴다고 생각하고 처음부터 끝까지 써 봐.
-멈칫할 곳, 헷갈리는 말, 손가락으로 누르기 어려운 곳을 찾아 표로 보여 주고 고쳐 줘.
-학생 이름·사진처럼 받지 않아도 되는 정보를 받는 곳이 있는지도 같이 봐 줘.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-fix" id="p-check" data-cat="fix" data-q="학생 입장에서 점검 교실에 내놓기 전에 [5]학년 학생이 되어 끝까지 써 보고 막히는 곳을 고쳐 줘.">
+  <div class="head">
     <span class="cat">고치기</span>
-    <span class="t">학생 입장에서 점검</span>
+    <h3 class="t">학생 입장에서 점검</h3>
     <span class="w">교실에 내놓기 전에</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre><span class="fill">[5]</span>학년 학생이 처음 쓴다고 생각하고 처음부터 끝까지 써 봐.
-멈칫할 곳, 헷갈리는 말, 손가락으로 누르기 어려운 곳을 찾아 표로 보여 주고 고쳐 줘.
-학생 이름·사진처럼 받지 않아도 되는 정보를 받는 곳이 있는지도 같이 봐 줘.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre><span class="fill">[5]</span>학년 학생이 되어 끝까지 써 보고 막히는 곳을 고쳐 줘.</pre></div>
     
     
     
   </div>
 </article>
-<article class="card star c-share" id="p-artifact" data-cat="share" data-q="오늘 바로 링크로 나누기 (claude 아티팩트) 가입 없이 지금 만든 앱을 링크로 보여 주고 싶을 때 이 앱을 아티팩트로 올려 줘. 제목은 [우리 반 실학 퀴즈].
-한 페이지로, 그림은 페이지 안에 넣어 줘. 다 올리면 주소를 알려 줘.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card star c-share" id="p-vercel" data-cat="share" data-q="버셀에 배포 학생과 다른 선생님이 주소로 열게 할 때 버셀에 배포해 줘.">
+  <div class="head">
     <span class="cat">나누기</span>
-    <span class="t">오늘 바로 링크로 나누기 (Claude 아티팩트)</span>
-    <span class="w">가입 없이 지금 만든 앱을 링크로 보여 주고 싶을 때</span>
-  </button>
-  <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>이 앱을 아티팩트로 올려 줘. 제목은 <span class="fill">[우리 반 실학 퀴즈]</span>.
-한 페이지로, 그림은 페이지 안에 넣어 줘. 다 올리면 주소를 알려 줘.</pre></div>
-    <div class="pbox"><div class="pbar"><span>고친 뒤에는</span><button class="copy" type="button">복사</button></div><pre>고친 것을 같은 아티팩트에 다시 올려 줘.</pre></div>
-    <p class="tip">올린 페이지 위쪽 Share에서 공개(Public)로 바꾸고 링크를 복사합니다. 로그인 없이 누구나 열립니다. 새로고침해도 남아야 하는 기록 저장은 안 될 수 있으니, 저장이 필요한 앱은 Vercel로 올립니다.</p>
-    <p class="next">이어서 <span><a href="#p-vercel">계속 쓰는 주소로 올리기 (Vercel)</a></span></p>
+    <h3 class="t">버셀에 배포</h3>
+    <span class="w">학생과 다른 선생님이 주소로 열게 할 때</span>
   </div>
-</article>
-<article class="card star c-share" id="p-vercel" data-cat="share" data-q="계속 쓰는 주소로 올리기 (vercel) 학생들이 매일 쓰고, 새로고침해도 기록이 남아야 할 때 vercel 커넥터로 이 앱을 배포해 줘. 프로젝트 이름은 영어 소문자로 [class-quiz].
-정식(production)으로 올리고, 로그인 없이 열리는 짧은 주소(이름.vercel.app)를 알려 줘.
-그 주소를 로그인하지 않은 상태로 열어서 앱이 보이는지 확인해 줘.">
-  <button class="head" type="button" aria-expanded="false">
-    <span class="cat">나누기</span>
-    <span class="t">계속 쓰는 주소로 올리기 (Vercel)</span>
-    <span class="w">학생들이 매일 쓰고, 새로고침해도 기록이 남아야 할 때</span>
-  </button>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>Vercel 커넥터로 이 앱을 배포해 줘. 프로젝트 이름은 영어 소문자로 <span class="fill">[class-quiz]</span>.
-정식(production)으로 올리고, 로그인 없이 열리는 짧은 주소(이름.vercel.app)를 알려 줘.
-그 주소를 로그인하지 않은 상태로 열어서 앱이 보이는지 확인해 줘.</pre></div>
-    <div class="pbox"><div class="pbar"><span>고친 뒤에는</span><button class="copy" type="button">복사</button></div><pre>고친 것을 같은 Vercel 프로젝트에 정식으로 다시 올려 줘. 짧은 주소에서 바뀐 게 보이는지 확인해 줘.</pre></div>
-    <p class="tip">처음 한 번만 claude.ai 설정 → 커넥터에서 Vercel을 연결합니다(GitHub나 이메일로 가입). 주소가 두 개 나오는데 긴 주소(…-계정이름.vercel.app)는 로그인 화면이 떠서 학생이 못 엽니다. 짧은 주소만 나눕니다. 무료는 비상업 개인 용도입니다.</p>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>버셀에 배포해 줘.</pre></div>
+    <div class="pbox"><div class="pbar"><span>고친 뒤에는</span><button class="copy" type="button">복사</button></div><pre>다시 배포해 줘.</pre></div>
+    <p class="tip">처음 한 번만 claude.ai 설정 → 커넥터에서 Vercel을 연결합니다(GitHub나 이메일로 가입). 학생에게 준 주소가 로그인 화면으로 가면 “로그인 없이 열리는 주소 알려 줘”.</p>
     
   </div>
 </article>
-<article class="card c-share" id="p-netlify" data-cat="share" data-q="netlify로 올리기 netlify 계정이 이미 있을 때 netlify 커넥터로 이 앱을 배포해 줘. 사이트 이름은 영어 소문자로 [class-quiz].
-배포에 필요한 프로그램이 없으면 네가 설치해 줘. 다 되면 주소를 열어 확인해 줘.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-share" id="p-artifact" data-cat="share" data-q="가입 없이 링크로 (아티팩트) vercel 연결 전에 지금 바로 보여 주고 싶을 때 아티팩트로 올려 줘.">
+  <div class="head">
     <span class="cat">나누기</span>
-    <span class="t">Netlify로 올리기</span>
-    <span class="w">Netlify 계정이 이미 있을 때</span>
-  </button>
+    <h3 class="t">가입 없이 링크로 (아티팩트)</h3>
+    <span class="w">Vercel 연결 전에 지금 바로 보여 주고 싶을 때</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>Netlify 커넥터로 이 앱을 배포해 줘. 사이트 이름은 영어 소문자로 <span class="fill">[class-quiz]</span>.
-배포에 필요한 프로그램이 없으면 네가 설치해 줘. 다 되면 주소를 열어 확인해 줘.</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>아티팩트로 올려 줘.</pre></div>
     
-    <p class="tip">무료는 정식 배포 한 번에 15크레딧, 한 달 300크레딧입니다. 한 달에 스무 번쯤 고쳐 올리면 다 차고, 그러면 계정의 모든 사이트가 멈춥니다. 자주 고치는 동안에는 아티팩트나 Vercel이 편합니다.</p>
+    <p class="tip">올린 페이지 위쪽 Share에서 공개(Public)로 바꾸고 링크를 복사합니다. 한 페이지짜리만 되고, 기록 저장이 필요한 앱은 버셀로 올립니다.</p>
     
   </div>
 </article>
-<article class="card c-share" id="p-deploy" data-cat="share" data-q="기록 모으기를 붙인 앱 올리기 (cloudflare) 반 전체 기록 모으기(데이터베이스)를 붙인 뒤 이 앱을 cloudflare에 올려서 인터넷 주소를 만들어 줘.
-나는 cloudflare 가입과 메일 인증을 해 두었어.
-필요한 프로그램이 없으면 네가 설치하고, 로그인 창이 뜨면 내가 ‘허용’만 누르면 되게 알려 줘.
-주소에 들어갈 이름은 영어 소문자로 [class-quiz].">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-share" id="p-where" data-cat="share" data-q="어디에 올릴지 묻기 무엇을 써야 할지 모를 때 이 앱을 어디에 올리면 좋을지 추천해 줘. 반 학생이 [매일] 쓰고, 기록이 [내 화면에 모여야] 해.">
+  <div class="head">
     <span class="cat">나누기</span>
-    <span class="t">기록 모으기를 붙인 앱 올리기 (Cloudflare)</span>
-    <span class="w">반 전체 기록 모으기(데이터베이스)를 붙인 뒤</span>
-  </button>
+    <h3 class="t">어디에 올릴지 묻기</h3>
+    <span class="w">무엇을 써야 할지 모를 때</span>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>이 앱을 Cloudflare에 올려서 인터넷 주소를 만들어 줘.
-나는 Cloudflare 가입과 메일 인증을 해 두었어.
-필요한 프로그램이 없으면 네가 설치하고, 로그인 창이 뜨면 내가 ‘허용’만 누르면 되게 알려 줘.
-주소에 들어갈 이름은 영어 소문자로 <span class="fill">[class-quiz]</span>.</pre></div>
-    <div class="pbox"><div class="pbar"><span>고친 뒤에는</span><button class="copy" type="button">복사</button></div><pre>고친 것을 같은 주소에 다시 올려 줘. 올린 뒤 그 주소를 열어서 바뀐 게 보이는지 확인해 줘.</pre></div>
-    <p class="tip">처음 판에는 필요 없습니다. 학생 태블릿의 기록이 교사 화면에 모여야 할 때 씁니다. 가입: dash.cloudflare.com/sign-up</p>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>이 앱을 어디에 올리면 좋을지 추천해 줘. 반 학생이 <span class="fill">[매일]</span> 쓰고, 기록이 <span class="fill">[내 화면에 모여야]</span> 해.</pre></div>
+    
+    <p class="tip">연수 페이지 「어디에 올릴까」에 순위와 무료 한도가 있습니다.</p>
     
   </div>
 </article>
-<article class="card c-share" id="p-where" data-cat="share" data-q="어디에 올릴지 묻기 아티팩트, vercel, netlify, firebase… 무엇을 써야 할지 모를 때 이 앱을 반 학생 [24]명이 [매일] 쓸 거야. 기록은 [남기지 않아도 돼 / 이 기기에만 / 반 전체가 한곳에] 남아야 해.
-무료로 쓰려면 어디에 올리면 좋을지 claude 아티팩트, vercel, netlify, github pages, cloudflare, 구글 시트, firebase 중에서 골라
-이유를 초등 교사가 알아듣게 설명해 줘. 무료 한도를 넘으면 어떻게 되는지도 알려 줘.">
-  <button class="head" type="button" aria-expanded="false">
+<article class="card c-share" id="p-present" data-cat="share" data-q="발표 메모 만든 앱을 3분 동안 소개할 때 발표 3분용으로 이 앱 소개를 정리해 줘. 무엇이 불편했고, 무엇을 만들었고, 다음에 무엇을 고칠지.">
+  <div class="head">
     <span class="cat">나누기</span>
-    <span class="t">어디에 올릴지 묻기</span>
-    <span class="w">아티팩트, Vercel, Netlify, Firebase… 무엇을 써야 할지 모를 때</span>
-  </button>
-  <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>이 앱을 반 학생 <span class="fill">[24]</span>명이 <span class="fill">[매일]</span> 쓸 거야. 기록은 <span class="fill">[남기지 않아도 돼 / 이 기기에만 / 반 전체가 한곳에]</span> 남아야 해.
-무료로 쓰려면 어디에 올리면 좋을지 Claude 아티팩트, Vercel, Netlify, GitHub Pages, Cloudflare, 구글 시트, Firebase 중에서 골라
-이유를 초등 교사가 알아듣게 설명해 줘. 무료 한도를 넘으면 어떻게 되는지도 알려 줘.</pre></div>
-    
-    <p class="tip">연수 페이지 「어디에 올리고, 어디에 모을까」에 공식 한도 비교가 있습니다.</p>
-    
-  </div>
-</article>
-<article class="card c-share" id="p-present" data-cat="share" data-q="발표 메모 만들기 만든 앱을 3분 동안 소개할 때 내가 만든 앱을 3분 동안 소개하려고 해. 지금까지 나눈 대화를 보고 짧게 정리해 줘.
-① 무엇이 불편했나 ② 무엇을 만들었나 ③ 가장 잘 먹힌 요청 한 줄 ④ 다음에 고칠 것">
-  <button class="head" type="button" aria-expanded="false">
-    <span class="cat">나누기</span>
-    <span class="t">발표 메모 만들기</span>
+    <h3 class="t">발표 메모</h3>
     <span class="w">만든 앱을 3분 동안 소개할 때</span>
-  </button>
+  </div>
   <div class="body">
-    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>내가 만든 앱을 3분 동안 소개하려고 해. 지금까지 나눈 대화를 보고 짧게 정리해 줘.
-① 무엇이 불편했나 ② 무엇을 만들었나 ③ 가장 잘 먹힌 요청 한 줄 ④ 다음에 고칠 것</pre></div>
+    <div class="pbox"><div class="pbar"><span>프롬프트</span><button class="copy" type="button">복사</button></div><pre>발표 3분용으로 이 앱 소개를 정리해 줘. 무엇이 불편했고, 무엇을 만들었고, 다음에 무엇을 고칠지.</pre></div>
     
     
     
@@ -699,23 +533,21 @@ Cloudflare Worker와 D1을 써. 나는 Cloudflare 가입과 메일 인증을 해
 <p class="empty" id="empty">맞는 카드가 없습니다. 다른 말로 찾아 보세요.</p>
 
 <section class="demo" id="demo">
-  <h2>실제로 넣어 봤습니다</h2>
-  <p class="sub">「교과 자료로 수업용 앱·게임 만들기」에 6학년 사회 손글씨 판서 학습지 PDF(새로운 문물을 받아들인 조선) 한 장을 붙였습니다.</p>
+  <h2>실제로 만든 사례 · SW·AI 놀이터</h2>
+  <p class="sub">정보교육 주간에 1~6학년이 쓰는 웹앱입니다. 자료를 붙이지 않고, 공식 자료를 찾아 근거로 쓰라고만 했습니다. <a href="https://sw.choinssam.com" target="_blank" rel="noopener">sw.choinssam.com</a></p>
   <div class="demo-grid">
-    <figure><img src="../img/sahoe.jpg" alt="손글씨 판서 학습지"><figcaption>붙인 자료: 손글씨 마인드맵 한 장</figcaption></figure>
+    <figure><img src="../img/sw_basis.jpg" alt="활동마다 교육과정 근거와 출처를 단 선생님 안내 화면"><figcaption>선생님 안내 화면. 활동마다 교육과정 근거와 출처가 붙어 있습니다.</figcaption></figure>
     <div class="reply">
-      <p class="rl">Claude가 낸 안 5개</p>
-      <ol>
-        <li><b>나는 누구일까? 힌트 퀴즈</b> 도입 · 전체 · 쉬움</li>
-        <li><b>실생활 문제 해결사</b> “무거운 돌을 성벽 위로” → 거중기 · 전개 · 혼자 · 쉬움</li>
-        <li><b>실학 분야 바구니 담기</b> 카드를 분야별로 끌어다 넣기 · 전개 · 짝 · 보통</li>
-        <li><b>실학자 짝 맞추기 카드</b> 인물·책·내용 잇기 · 정리 · 짝 · 쉬움</li>
-        <li><b>실학 방 탈출</b> 마지막 방은 대동여지도 · 정리 · 모둠 · 어려움</li>
-      </ol>
-      <p class="rl">스스로 짚은 것</p>
-      <p>“제목의 ‘수원화성의 가치’는 이 장에 거중기로 지었다는 것밖에 없습니다. 그래서 아이디어에서 뺐습니다.”</p>
-      <p class="rl">다음 말</p>
-      <p>“2번에 4번을 붙여서. 다만 모둠 대결로.”</p>
+      <p class="rl">처음 한 말</p>
+      <p>“정보교육 주간에 1~6학년이 쓰는 웹앱을 만들어 배포한다. 근거는 교육부·한국과학창의재단·KERIS 최근 자료만. 출처 없는 내용은 넣지 않는다. 불분명한 것은 먼저 질문.”</p>
+      <p class="rl">Claude가 찾아 온 자료</p>
+      <ul>
+        <li>2022 개정 교육과정 원문(총론 정보교육 34시간, 실과 [6실05-01~05])</li>
+        <li>교육부·한국과학창의재단 「초·중등 인공지능 교육 내용 기준」</li>
+        <li>교육부 디지털 역량교육 세 영역, KERIS 사이버어울림, 교육부 딥페이크 예방 자료</li>
+      </ul>
+      <p class="rl">나온 것</p>
+      <p>1~6학년 활동 41개(퀴즈, 로봇 블록 코딩, 뉴스 탐정 등). 활동마다 교육과정 근거와 사실 확인 출처를 선생님 안내에 달았습니다. 그 뒤 학생·선생님 의견을 받아 계속 고치고 있습니다.</p>
     </div>
   </div>
 </section>
@@ -745,14 +577,12 @@ function apply(){
 document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{cat=b.dataset.cat;document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));apply();}));
 document.getElementById('q').addEventListener('input',apply);
 document.getElementById('star').addEventListener('change',apply);
-function open(card,scroll){
-  cards.forEach(c=>{if(c!==card){c.classList.remove('open');c.querySelector('.head').setAttribute('aria-expanded','false');}});
-  const on=!card.classList.contains('open')||scroll;
-  card.classList.toggle('open',on);card.querySelector('.head').setAttribute('aria-expanded',on);
-  if(on&&scroll){card.hidden=false;card.scrollIntoView({behavior:'smooth',block:'start'});}
+function go(card){
+  cards.forEach(c=>c.classList.remove('flash'));
+  card.hidden=false;card.scrollIntoView({behavior:'smooth',block:'center'});
+  card.classList.add('flash');setTimeout(()=>card.classList.remove('flash'),2200);
 }
-cards.forEach(c=>c.querySelector('.head').addEventListener('click',()=>{open(c,false);if(c.classList.contains('open'))history.replaceState(null,'','#'+c.id);}));
-function fromHash(){const c=document.getElementById(location.hash.slice(1));if(c&&c.classList.contains('card')){cat='all';document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.cat==='all'));document.getElementById('q').value='';document.getElementById('star').checked=false;apply();open(c,true);}}
+function fromHash(){const c=document.getElementById(location.hash.slice(1));if(c&&c.classList.contains('card')){cat='all';document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.cat==='all'));document.getElementById('q').value='';document.getElementById('star').checked=false;apply();go(c);}}
 addEventListener('hashchange',fromHash);fromHash();
 document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async e=>{
   e.stopPropagation();

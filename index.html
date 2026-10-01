@@ -165,7 +165,7 @@ a.dl{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
 <h3 id="ready">연수 전에 해 둘 것</h3>
 <ol class="steps">
 <li><b>Claude 데스크톱 앱에서 Code 탭이 열리는지.</b> 안 열리면 <a href="https://start.choinssam.com" target="_blank" rel="noopener">start.choinssam.com</a>을 위에서부터 따라 하시면 됩니다.</li>
-<li><b>(있으면 좋음) Vercel 커넥터 연결.</b> claude.ai 설정 → 커넥터 → Vercel → 연결. 계정이 없으면 바로 GitHub나 이메일로 가입합니다. 매일 쓰는 앱을 계속 쓰는 주소로 올릴 때 씁니다. 오늘 바로 나누는 것은 가입 없이 Claude 아티팩트로 됩니다.</li>
+<li><b>Vercel 커넥터 연결.</b> claude.ai 설정 → 커넥터 → Vercel → 연결. 계정이 없으면 바로 GitHub나 이메일로 가입합니다. 한 번 연결하면 배포와 수정은 “버셀에 배포해 줘”로 Claude가 합니다.</li>
 </ol>
 </section>
 
@@ -262,25 +262,20 @@ a.dl{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
 
 <section id="prompts">
 <h2><span class="no">P</span>바로 쓰는 프롬프트</h2>
-<p class="lead">자료를 붙이고 아이디어부터 받습니다. 선생님은 AI가 낸 안을 보고 번호로 고르고, 한 줄씩 더합니다. 게임, 로그인, 대시보드, 디자인처럼 필요한 것은 상황별 카드에서 찾아 붙입니다.</p>
-<p><a class="dl" href="prompts/">바로 쓰는 프롬프트 페이지 열기</a> · 상황별 카드 27장, 필터와 찾기, 복사 단추</p>
-<div class="prompt"><span class="label">시작 ① 교과 자료로 수업용 앱·게임</span><button class="copy">복사</button><pre>나는 초등학교 [5]학년 담임이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-붙인 자료는 [과목] [단원명] [몇]차시 수업 자료야.
-
-1. 먼저 자료를 읽고 이 차시에서 학생이 배워야 할 것을 다섯 줄 안으로 정리해 줘.
-2. 이 차시에 쓸 재미있는 웹앱이나 학습 게임 아이디어를 서로 다른 것으로 5개 제안해 줘.
-   안마다: 이름 / 학생이 하는 일 한 줄 / 수업 어느 때(도입·전개·정리) / 배움과 이어지는 점 / 혼자·모둠·전체 / 만들기 난도
-3. 내용은 붙인 자료에서만 가져오고, 자료에 없는 사실은 지어내지 마.
-4. 아직 만들지 말고, 내가 번호로 고르면 다음 단계로 가자.</pre></div>
-<div class="prompt"><span class="label">시작 ② 업무 자료로 업무 도구</span><button class="copy">복사</button><pre>나는 초등학교 교사이고 코딩을 몰라. 어려운 말은 풀어서 설명해 줘.
-붙인 자료는 [업무 이름] 관련 문서야.
-
-1. 먼저 읽고 이 업무가 어떤 순서로 진행되는지 단계와 마감일을 표로 정리해 줘. 사람 이름과 연락처는 옮기지 마.
-2. 이 업무를 쉽고 빠뜨림 없이 하게 도와줄 도구 아이디어를 서로 다른 것으로 4개 제안해 줘.
-   안마다: 이름 / 누가 쓰는지 / 줄어드는 일 / 저장할 기록이 있는지 / 만들기 난도
-3. 아직 만들지 말고, 내가 번호로 고르면 다음 단계로 가자.</pre></div>
-<figure><img src="img/sahoe.jpg" alt="6학년 사회 손글씨 판서 학습지"><figcaption>시작 ①에 이 손글씨 판서 학습지(6학년 사회, 새로운 문물을 받아들인 조선) 한 장을 붙이자, Claude가 배울 것 다섯 줄과 안 5개(힌트 퀴즈, 문제 해결사, 분야 바구니 담기, 짝 맞추기, 방 탈출)를 내고 자료에 없는 내용은 스스로 짚어 뺐습니다.</figcaption></figure>
-<p class="muted">한뼘·SW 놀이터를 기능별로 따라 만들고 싶으면 <a href="레시피북.md" download>레시피북.md</a>(시작 레시피 9, 기능 카드 15)를 받아 작업 폴더에 넣고 “레시피북.md를 읽고 S1으로 시작해 줘”라고 합니다.</p>
+<p class="lead">자료를 붙이거나 찾아오게 하고, 아이디어부터 받습니다. 선생님은 AI가 낸 안을 보고 번호로 고르고 한 줄씩 더합니다. Claude가 알아서 할 말은 쓰지 않습니다.</p>
+<p><a class="dl" href="prompts/">바로 쓰는 프롬프트 페이지 열기</a> · 상황별 카드 29장, 대부분 한두 줄</p>
+<div class="prompt"><span class="label">교과 자료로 시작</span><button class="copy">복사</button><pre>나는 [5]학년 담임이고 코딩은 몰라.
+붙인 [사회 1단원 3차시] 자료로 수업에 쓸 웹앱이나 학습 게임 아이디어를 5개 줘.
+자료에 없는 내용은 지어내지 말고, 내가 고르기 전에는 만들지 마.</pre></div>
+<div class="prompt"><span class="label">자료를 찾아오게 해서 시작</span><button class="copy">복사</button><pre>나는 [5]학년 담임이고 코딩은 몰라.
+[정보교육 주간]에 [1~6학년]이 쓸 [체험·퀴즈] 웹앱을 만들고 싶어.
+[교육부·KERIS·한국과학창의재단] 공식 자료를 찾아 근거로 쓰고, 출처 없는 내용은 넣지 마.
+아이디어부터 보여 줘.</pre></div>
+<div class="prompt"><span class="label">업무 자료로 시작</span><button class="copy">복사</button><pre>나는 초등 교사고 코딩은 몰라.
+붙인 [현장체험학습 계획] 문서로 이 업무를 편하게 해 줄 도구 아이디어를 4개 줘.
+이름·연락처는 옮기지 마.</pre></div>
+<figure><img src="img/sw_basis.jpg" alt="SW·AI 놀이터 선생님 안내, 활동마다 교육과정 근거와 출처"><figcaption>SW·AI 놀이터는 자료를 붙이지 않고 “교육부·한국과학창의재단·KERIS 최근 자료만, 출처 없는 내용은 넣지 않는다”고만 시작했습니다. Claude가 교육과정 원문과 「초·중등 인공지능 교육 내용 기준」 등을 찾아 1~6학년 활동 41개를 만들고, 활동마다 근거와 출처를 달았습니다.</figcaption></figure>
+<p class="muted">한뼘·SW 놀이터를 기능별로 따라 만들고 싶으면 <a href="레시피북.md" download>레시피북.md</a>를 받아 작업 폴더에 넣습니다.</p>
 </section>
 
 <section id="lab">
@@ -291,7 +286,7 @@ a.dl{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
 <tr><td>10</td><td>계획</td><td>레시피를 골라 [ ]를 바꿔 요청하고, 질문에 답하고, 계획을 읽습니다</td></tr>
 <tr><td>15</td><td>만들기</td><td>계획을 승인하고, 미리보기로 써 봅니다</td></tr>
 <tr><td>10</td><td>고치기</td><td>짝이 써 보고, 캡처로 고칠 곳을 알려 줍니다</td></tr>
-<tr><td>10</td><td>나누기</td><td>아티팩트로 올려 링크를 받고(계속 쓸 앱은 Vercel), 패들렛에 올립니다</td></tr>
+<tr><td>10</td><td>나누기</td><td>“버셀에 배포해 줘”로 주소를 받아 패들렛에 올립니다</td></tr>
 </table>
 <h3 id="fix">고칠 때 자주 쓰는 말</h3>
 <div class="prompt"><span class="label">캡처로 고치기</span><button class="copy">복사</button><pre>(캡처에 네모를 치고 끌어다 놓고) 네모 친 부분이 교실 뒤에서 안 보여. 글씨를 크게 하고 나머지는 그대로 둬.</pre></div>
@@ -300,20 +295,14 @@ a.dl{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
 <div class="prompt"><span class="label">되돌리기</span><button class="copy">복사</button><pre>방금 바꾼 것을 되돌려 줘.</pre></div>
 
 <h3 id="deploy">링크로 나누기</h3>
-<p>오늘 만든 한 파일 앱은 데이터베이스 없이 올립니다. 순위와 이유는 아래 <a href="#where">어디에 올릴까</a>에 있습니다.</p>
-<div class="prompt"><span class="label">1순위 · 가입 없이 오늘 바로 (Claude 아티팩트)</span><button class="copy">복사</button><pre>이 앱을 아티팩트로 올려 줘. 제목은 [우리 반 실학 퀴즈].
-한 페이지로, 그림은 페이지 안에 넣어 줘. 다 올리면 주소를 알려 줘.</pre></div>
-<p class="muted">올린 페이지 위쪽 <b>Share</b>에서 공개(Public)로 바꾸고 링크를 복사합니다. 로그인 없이 누구나 열립니다. 고친 뒤 “같은 아티팩트에 다시 올려 줘”라고 하면 주소가 그대로입니다.</p>
-<div class="prompt"><span class="label">2순위 · 매일 쓰는 앱, 계속 쓰는 주소 (Vercel)</span><button class="copy">복사</button><pre>Vercel 커넥터로 이 앱을 배포해 줘. 프로젝트 이름은 영어 소문자로 [class-quiz].
-정식(production)으로 올리고, 로그인 없이 열리는 짧은 주소(이름.vercel.app)를 알려 줘.
-그 주소를 로그인하지 않은 상태로 열어서 앱이 보이는지 확인해 줘.</pre></div>
-<div class="warn"><b>Vercel 주소는 짧은 것만 나눕니다.</b> 배포하면 <code>class-quiz.vercel.app</code>와 <code>class-quiz-계정이름.vercel.app</code> 두 주소가 생깁니다. 긴 주소는 Vercel 로그인 화면이 떠서 학생이 열지 못합니다(2026-10-01 직접 확인).</div>
-<p class="muted">Netlify 커넥터도 됩니다. 다만 무료는 한 달에 스무 번쯤 고쳐 올리면 크레딧이 다 차서 계정의 모든 사이트가 멈춥니다. 반 전체 기록 모으기까지 간 앱은 Cloudflare가 맞습니다. 요청문은 <a href="prompts/#p-deploy">바로 쓰는 프롬프트</a>에 있습니다.</p>
+<div class="prompt"><span class="label">버셀에 배포</span><button class="copy">복사</button><pre>버셀에 배포해 줘.</pre></div>
+<p>고친 뒤에는 “다시 배포해 줘”. 학생에게 준 주소가 로그인 화면으로 가면 “로그인 없이 열리는 주소 알려 줘”라고 합니다. Vercel은 주소를 두 개 만드는데, 짧은 주소(이름.vercel.app)만 누구나 열립니다(2026-10-01 확인).</p>
+<div class="prompt"><span class="label">Vercel 연결 전에 지금 바로 (가입 없이)</span><button class="copy">복사</button><pre>아티팩트로 올려 줘.</pre></div>
+<p class="muted">올린 페이지 위쪽 Share에서 공개(Public)로 바꾸고 링크를 복사합니다. 한 페이지짜리만 되고, 기록 저장이 필요한 앱은 버셀로 올립니다. 어디에 올릴지 고르는 기준은 아래 <a href="#where">어디에 올릴까</a>에 있습니다.</p>
 
 <h3 id="deploy-stuck">나누기가 막히면</h3>
 <table>
 <tr><th>증상</th><th>해 볼 것</th></tr>
-<tr><td>“아티팩트를 올릴 수 없다”고 한다</td><td>앱을 새 판으로 받고 다시 로그인. 안 되면 Vercel로</td></tr>
 <tr><td>아티팩트에서 새로고침하면 기록이 사라진다</td><td>저장이 필요한 앱은 Vercel로 올립니다</td></tr>
 <tr><td>아티팩트에 그림이 안 나온다</td><td>“그림을 페이지 안에 넣어서 다시 올려 줘”</td></tr>
 <tr><td>Vercel 주소가 로그인 화면으로 간다</td><td>긴 주소를 나눈 것. 짧은 주소(이름.vercel.app)로</td></tr>
@@ -323,13 +312,13 @@ a.dl{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
 
 <section id="where">
 <h2><span class="no">+</span>어디에 올릴까 · 처음 하는 선생님 기준 순위</h2>
-<p class="lead">오늘 만드는 한 파일 앱에는 <b>데이터베이스가 필요 없습니다.</b> 가입이 적고 Claude가 끝까지 해 주는 곳부터 씁니다. 반 전체 기록을 한곳에 모아야 할 때 다음 단계로 넘어갑니다.</p>
+<p class="lead">오늘 만드는 앱에는 <b>데이터베이스 가입이 필요 없습니다.</b> 커넥터를 한 번 연결해 Claude가 배포·수정·관리까지 하는 곳부터 씁니다. 반 전체 기록을 모아야 할 때는 “저장 방법을 비교해서 추천해 줘”로 Claude와 정합니다.</p>
 
 <h3 id="where-rank">처음이라면 이 순서</h3>
 <table>
 <tr><th>순위</th><th>방법</th><th>더 가입할 곳</th><th>Claude가 끝까지?</th><th>잘 맞는 앱 · 조심할 것</th></tr>
-<tr><td>1</td><td><b>Claude 아티팩트</b><br><span class="muted">Code 탭에서 “아티팩트로 올려 줘”</span></td><td>없음(Pro 계정 그대로)</td><td>올리기까지 Claude. 공개 전환은 페이지 위 Share 한 번</td><td>퀴즈·게임·뽑기처럼 저장이 필요 없는 앱. 한 페이지, 외부 그림 불가, 새로고침 뒤 기록 저장은 안 될 수 있음(확인 못 함)</td></tr>
-<tr><td>2</td><td><b>Vercel</b><br><span class="muted">커넥터로 배포</span></td><td>Vercel(GitHub·이메일로 가입), 커넥터 연결 한 번</td><td>됨. 설치할 것 없음</td><td>매일 쓰고 기록이 이 기기에 남아야 하는 앱. <b>짧은 주소(이름.vercel.app)만 공개</b>, 긴 주소는 로그인 화면. 무료는 비상업 개인 용도</td></tr>
+<tr><td>1</td><td><b>Vercel</b><br><span class="muted">커넥터 연결 뒤 “버셀에 배포해 줘”</span></td><td>Vercel(GitHub·이메일로 가입), 커넥터 연결 한 번</td><td>됨. 설치할 것 없음</td><td>매일 쓰고 기록이 이 기기에 남아야 하는 앱. <b>짧은 주소(이름.vercel.app)만 공개</b>, 긴 주소는 로그인 화면. 무료는 비상업 개인 용도</td></tr>
+<tr><td>2</td><td><b>Claude 아티팩트</b><br><span class="muted">Code 탭에서 “아티팩트로 올려 줘”</span></td><td>없음(Pro 계정 그대로)</td><td>올리기까지 Claude. 공개 전환은 페이지 위 Share 한 번</td><td>퀴즈·게임·뽑기처럼 저장이 필요 없는 앱. 한 페이지, 외부 그림 불가, 새로고침 뒤 기록 저장은 안 될 수 있음(확인 못 함)</td></tr>
 <tr><td>3</td><td><b>Netlify</b><br><span class="muted">커넥터로 배포</span></td><td>Netlify, 커넥터 연결</td><td>됨. 명령 한 줄을 돌려서(Node.js 필요, Claude가 설치)</td><td>무료는 정식 배포 한 번에 15크레딧, 한 달 300크레딧. 스무 번쯤 고쳐 올리면 다 차고 <b>계정의 모든 사이트가 멈춤</b></td></tr>
 <tr><td>4</td><td><b>GitHub Pages</b></td><td>GitHub</td><td>됨(설치·로그인은 사람)</td><td>코드도 공개됨. 사업 용도 금지. 올리고 1~2분 기다림</td></tr>
 <tr><td>5</td><td><b>Cloudflare</b></td><td>Cloudflare(메일 인증까지)</td><td>됨(Node.js 필요, Claude가 설치)</td><td>반 전체 기록 모으기(D1)까지 갈 앱. 한도를 넘어도 요금 없이 그날만 멈춤</td></tr>
@@ -339,7 +328,7 @@ a.dl{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
 <h3 id="where-next">기록을 모아야 할 때 (다음 단계)</h3>
 <table>
 <tr><th>우리 앱은</th><th>고를 곳</th><th>초인쌤 사례</th></tr>
-<tr><td>기록이 없거나 이 기기에만 남으면 된다</td><td>위 순위 그대로(아티팩트, Vercel)</td><td>발표 순서 뽑기</td></tr>
+<tr><td>기록이 없거나 이 기기에만 남으면 된다</td><td>위 순위 그대로(Vercel, 아티팩트)</td><td>발표 순서 뽑기</td></tr>
 <tr><td>기록을 모아 교사만 본다<br><span class="muted">의견함, 설문, 체크</span></td><td>구글 시트(Apps Script)</td><td>밤하늘 의견 받기, 연수 실습 앱</td></tr>
 <tr><td>여러 반이 익명으로 쓴다</td><td>Cloudflare Workers + D1</td><td>SW·AI 놀이터, 디드</td></tr>
 <tr><td>학생 로그인, 실시간, 기록이 많다</td><td>Firebase 또는 Supabase</td><td>한뼘(Firebase)</td></tr>

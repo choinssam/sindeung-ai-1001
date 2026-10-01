@@ -158,7 +158,7 @@ a.dl{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
 <tr><td>14:30</td><td>10</td><td>01 클로드 코드 둘러보기</td><td>Code 탭, 권한 모드, 미리보기</td></tr>
 <tr><td>14:40</td><td>20</td><td>02 무엇을 만들까 · 업무 · 학급운영 · 수업</td><td>불편한 것 한 줄 적기</td></tr>
 <tr><td>15:00</td><td>10</td><td>03 어떻게 만들까 · 요령과 레시피</td><td>레시피 하나 고르기</td></tr>
-<tr><td>15:10</td><td>50</td><td>04 실습 · 만들고 주소로 나누기</td><td>내 웹앱 주소 하나</td></tr>
+<tr><td>15:10</td><td>50</td><td>04 실습 · 만들고 배포하기</td><td>내 웹앱 주소 하나</td></tr>
 <tr><td>16:00</td><td>15</td><td>05 나눔</td><td>둘러보기 · 발표</td></tr>
 <tr><td>16:15</td><td>5</td><td>마무리</td><td></td></tr>
 </table>
@@ -263,30 +263,30 @@ a.dl{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
 <section id="prompts">
 <h2><span class="no">P</span>바로 쓰는 프롬프트</h2>
 <p class="lead">자료를 붙이거나 찾아오게 하고, 아이디어부터 받습니다. 선생님은 AI가 낸 안을 보고 번호로 고르고 한 줄씩 더합니다. Claude가 알아서 할 말은 쓰지 않습니다.</p>
-<p><a class="dl" href="prompts/">바로 쓰는 프롬프트 페이지 열기</a> · 상황별 카드 29장, 대부분 한두 줄</p>
+<p><a class="dl" href="prompts/">바로 쓰는 프롬프트 페이지 열기</a> · 상황별 카드 29장. 카드마다 이렇게만 써도 Claude가 알아서 하는 것과, 원할 때 덧붙일 줄</p>
 <div class="prompt"><span class="label">교과 자료로 시작</span><button class="copy">복사</button><pre>나는 [5]학년 담임이고 코딩은 몰라.
-붙인 [사회 1단원 3차시] 자료로 수업에 쓸 웹앱이나 학습 게임 아이디어를 5개 줘.
-자료에 없는 내용은 지어내지 말고, 내가 고르기 전에는 만들지 마.</pre></div>
+붙인 [사회 1단원 3차시] 자료를 읽고, 이 차시에서 배울 것을 살려 수업에 쓸 웹앱이나 학습 게임 아이디어를 5개 제안해 줘.
+자료에 없는 내용은 지어내지 말고, 내가 하나를 고르기 전에는 만들지 마.</pre></div>
 <div class="prompt"><span class="label">자료를 찾아오게 해서 시작</span><button class="copy">복사</button><pre>나는 [5]학년 담임이고 코딩은 몰라.
 [정보교육 주간]에 [1~6학년]이 쓸 [체험·퀴즈] 웹앱을 만들고 싶어.
-[교육부·KERIS·한국과학창의재단] 공식 자료를 찾아 근거로 쓰고, 출처 없는 내용은 넣지 마.
-아이디어부터 보여 줘.</pre></div>
+내용이 틀리면 안 되니까 [교육부·KERIS·한국과학창의재단] 공식 자료를 찾아 근거로 쓰고, 출처를 확인할 수 없는 내용은 넣지 마.
+찾은 자료를 먼저 정리해서 보여 주고, 아이디어를 제안해 줘.</pre></div>
 <div class="prompt"><span class="label">업무 자료로 시작</span><button class="copy">복사</button><pre>나는 초등 교사고 코딩은 몰라.
-붙인 [현장체험학습 계획] 문서로 이 업무를 편하게 해 줄 도구 아이디어를 4개 줘.
-이름·연락처는 옮기지 마.</pre></div>
+붙인 [현장체험학습 계획] 문서를 읽고, 이 업무에서 손이 많이 가거나 빠뜨리기 쉬운 곳을 찾아서 그걸 줄여 줄 도구 아이디어를 4개 제안해 줘.
+문서 속 이름·연락처는 옮기지 마.</pre></div>
 <figure><img src="img/sw_basis.jpg" alt="SW·AI 놀이터 선생님 안내, 활동마다 교육과정 근거와 출처"><figcaption>SW·AI 놀이터는 자료를 붙이지 않고 “교육부·한국과학창의재단·KERIS 최근 자료만, 출처 없는 내용은 넣지 않는다”고만 시작했습니다. Claude가 교육과정 원문과 「초·중등 인공지능 교육 내용 기준」 등을 찾아 1~6학년 활동 41개를 만들고, 활동마다 근거와 출처를 달았습니다.</figcaption></figure>
 <p class="muted">한뼘·SW 놀이터를 기능별로 따라 만들고 싶으면 <a href="레시피북.md" download>레시피북.md</a>를 받아 작업 폴더에 넣습니다.</p>
 </section>
 
 <section id="lab">
-<h2><span class="no">04</span>실습 · 만들고 주소로 나누기</h2>
+<h2><span class="no">04</span>실습 · 만들고 배포하기</h2>
 <table>
 <tr><th>분</th><th>단계</th><th>하는 것</th></tr>
 <tr><td>5</td><td>준비</td><td>빈 폴더를 만들고 Code 탭에서 고릅니다. 모드는 Plan</td></tr>
 <tr><td>10</td><td>계획</td><td>레시피를 골라 [ ]를 바꿔 요청하고, 질문에 답하고, 계획을 읽습니다</td></tr>
 <tr><td>15</td><td>만들기</td><td>계획을 승인하고, 미리보기로 써 봅니다</td></tr>
 <tr><td>10</td><td>고치기</td><td>짝이 써 보고, 캡처로 고칠 곳을 알려 줍니다</td></tr>
-<tr><td>10</td><td>나누기</td><td>“버셀에 배포해 줘”로 주소를 받아 패들렛에 올립니다</td></tr>
+<tr><td>10</td><td>배포하기</td><td>“버셀에 배포해 줘”로 주소를 받아 패들렛에 올립니다</td></tr>
 </table>
 <h3 id="fix">고칠 때 자주 쓰는 말</h3>
 <div class="prompt"><span class="label">캡처로 고치기</span><button class="copy">복사</button><pre>(캡처에 네모를 치고 끌어다 놓고) 네모 친 부분이 교실 뒤에서 안 보여. 글씨를 크게 하고 나머지는 그대로 둬.</pre></div>
@@ -294,13 +294,16 @@ a.dl{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
 <div class="prompt"><span class="label">오류가 날 때</span><button class="copy">복사</button><pre>(오류 문구나 화면을 그대로 붙이고) 원인을 찾아 고치고 다시 확인해 줘.</pre></div>
 <div class="prompt"><span class="label">되돌리기</span><button class="copy">복사</button><pre>방금 바꾼 것을 되돌려 줘.</pre></div>
 
-<h3 id="deploy">링크로 나누기</h3>
+<h3 id="deploy">배포하기</h3>
+<p><b>배포</b>는 내 컴퓨터에만 있는 앱을 인터넷에 늘 켜져 있는 컴퓨터(서버)에 올려 주소를 받는 일입니다. 주소만 있으면 학생 태블릿, 다른 선생님 휴대폰에서도 열립니다. 서버를 빌려주는 곳이 Vercel·Netlify 같은 회사이고, 작은 앱은 무료입니다. 오늘은 Vercel과 Claude를 <b>커넥터</b>(Claude가 다른 서비스를 대신 다루게 이어 주는 연결)로 이어서, 배포를 Claude가 합니다.</p>
+<ol class="steps"><li>Vercel 가입(vercel.com, GitHub나 이메일)</li><li>claude.ai 설정 → 커넥터 → Vercel 연결</li><li>“버셀에 배포해 줘” 한 줄</li><li>받은 주소를 학생에게</li><li>고친 뒤에는 “다시 배포해 줘”, 같은 주소가 새 판으로</li></ol>
 <div class="prompt"><span class="label">버셀에 배포</span><button class="copy">복사</button><pre>버셀에 배포해 줘.</pre></div>
 <p>고친 뒤에는 “다시 배포해 줘”. 학생에게 준 주소가 로그인 화면으로 가면 “로그인 없이 열리는 주소 알려 줘”라고 합니다. Vercel은 주소를 두 개 만드는데, 짧은 주소(이름.vercel.app)만 누구나 열립니다(2026-10-01 확인).</p>
+<p><b>아티팩트</b>는 Claude가 만든 결과물을 claude.ai 안에 웹페이지로 띄워 주는 기능입니다. 가입할 곳이 없어 Vercel을 연결하기 전에 바로 보여 줄 때 씁니다.</p>
 <div class="prompt"><span class="label">Vercel 연결 전에 지금 바로 (가입 없이)</span><button class="copy">복사</button><pre>아티팩트로 올려 줘.</pre></div>
 <p class="muted">올린 페이지 위쪽 Share에서 공개(Public)로 바꾸고 링크를 복사합니다. 한 페이지짜리만 되고, 기록 저장이 필요한 앱은 버셀로 올립니다. 어디에 올릴지 고르는 기준은 아래 <a href="#where">어디에 올릴까</a>에 있습니다.</p>
 
-<h3 id="deploy-stuck">나누기가 막히면</h3>
+<h3 id="deploy-stuck">배포가 막히면</h3>
 <table>
 <tr><th>증상</th><th>해 볼 것</th></tr>
 <tr><td>아티팩트에서 새로고침하면 기록이 사라진다</td><td>저장이 필요한 앱은 Vercel로 올립니다</td></tr>
